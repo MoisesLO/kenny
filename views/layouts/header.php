@@ -11,8 +11,7 @@
     <!-- Material Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css" rel="stylesheet">
 
-    <!-- Alpine Js -->
-    <script src="/assets/js/alpine.min.js" defer></script>
+
 
     <!-- Title -->
     <title>Document</title>
