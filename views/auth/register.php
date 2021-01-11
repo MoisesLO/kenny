@@ -87,70 +87,77 @@
           <h1 class="font-bold text-3xl text-gray-900">REGISTRO</h1>
           <p>Coloque la informacion de registro</p>
         </div>
-        <div x-data="register()">
-          <div class="flex -mx-3">
-            <div class="w-1/2 px-3 mb-5">
-              <label for="" class="text-xs font-semibold px-1">Nombres</label>
-              <div class="flex">
-                <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i
-                      class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
-                <input type="text"
-                       x-model="registro.nombres"
-                       class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                       placeholder="Abraham Moises">
-              </div>
-            </div>
-            <div class="w-1/2 px-3 mb-5">
-              <label for="" class="text-xs font-semibold px-1">Apellidos</label>
-              <div class="flex">
-                <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i
-                      class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
-                <input type="text"
-                       x-model="registro.apellidos"
-                       class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                       placeholder="Linares Oscco">
-              </div>
-            </div>
-          </div>
-          <div class="flex -mx-3">
-            <div class="w-full px-3 mb-5">
-              <label for="" class="text-xs font-semibold px-1">Correo</label>
-              <div class="flex">
-                <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                  <i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
+        <form x-on:submit.prevent="console.log('enviando formulario')" x-data="register()">
+          <div>
+            <div class="flex -mx-3">
+              <div class="w-1/2 px-3 mb-5">
+                <label for="" class="text-xs font-semibold px-1">Nombres</label>
+                <div class="flex">
+                  <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i
+                        class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
+                  <input type="text"
+                        x-model="registro.nombres"
+                        class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                        placeholder="Abraham Moises">
                 </div>
-                <input type="email"
-                       x-model="registro.correo"
-                       class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                       placeholder="johnsmith@example.com">
+              </div>
+              <div class="w-1/2 px-3 mb-5">
+                <label for="" class="text-xs font-semibold px-1">Apellidos</label>
+                <div class="flex">
+                  <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i
+                        class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
+                  <input type="text"
+                        x-model="registro.apellidos"
+                        class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                        placeholder="Linares Oscco">
+                </div>
+              </div>
+            </div>
+            <div class="flex -mx-3">
+              <div class="w-full px-3 mb-5">
+                <label for="" class="text-xs font-semibold px-1">Correo</label>
+                <div class="flex">
+                  <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                    <i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
+                  </div>
+                  <input type="email"
+                        x-model="registro.correo"
+                        class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                        placeholder="johnsmith@example.com">
+                </div>
+              </div>
+            </div>
+            <div class="flex -mx-3">
+              <div class="w-full px-3 mb-12">
+                <label for="" class="text-xs font-semibold px-1">Contrasenia</label>
+                <div class="flex">
+                  <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i
+                        class="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
+                  <input type="password"
+                        x-model="registro.password"
+                        class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                        placeholder="************">
+                </div>
+              </div>
+            </div>
+            <div class="flex -mx-3">
+              <div class="w-full px-3 mb-5">
+                <button
+                  type="submit"                              
+                  :class="{
+                    'bg-indigo-300': registro.nombres == '' || registro.apellidos == '' || registro.correo == '' || registro.password == '', 
+                    'hover:bg-indigo-300': registro.nombres == '' || registro.apellidos == '' || registro.correo == '' || registro.password == '',
+                    'bg-indigo-500': registro.nombres != '' && registro.apellidos != '' && registro.correo != '' && registro.password != '',
+                    'hover:bg-indigo-700': registro.nombres != '' && registro.apellidos != '' && registro.correo != '' && registro.password != '',
+                  }"
+                  class="block w-full max-w-xs mx-auto hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"
+                  :disabled="registro.nombres == '' || registro.apellidos == '' || registro.correo == '' || registro.password == ''">
+                  REGISTRAR AHORA
+                </button>
               </div>
             </div>
           </div>
-          <div class="flex -mx-3">
-            <div class="w-full px-3 mb-12">
-              <label for="" class="text-xs font-semibold px-1">Contrasenia</label>
-              <div class="flex">
-                <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i
-                      class="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
-                <input type="password"
-                       x-model="registro.password"
-                       class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                       placeholder="************">
-              </div>
-            </div>
-          </div>
-          <div class="flex -mx-3">
-            <div class="w-full px-3 mb-5">
-              <button
-                type="submit"
-                :class="{'bg-indigo-500': registro.nombres.length == ''}"
-                :class="{'hover:bg-indigo-700': registro.nombres.length > 0, 'hover:bg-indigo-100': registro.nombres == ''}"
-                class="block w-full max-w-xs mx-auto bg-indigo-500 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
-                REGISTRAR AHORAa
-              </button>
-            </div>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
@@ -159,10 +166,10 @@
   function register() {
     return {
       registro: {
-        nombres: 'moisess',
-        apellidos: 'linares',
-        correo: 'elnaufrago2009@gmail.com',
-        password: 'moiseslinar3s'
+        nombres: '',
+        apellidos: '',
+        correo: '',
+        password: ''
       }
     }
   }
