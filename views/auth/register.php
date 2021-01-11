@@ -87,7 +87,24 @@
           <h1 class="font-bold text-3xl text-gray-900">REGISTRO</h1>
           <p>Coloque la informacion de registro</p>
         </div>
-        <form x-on:submit.prevent="console.log('enviando formulario')" x-data="register()">
+        <form x-on:submit.prevent="
+          let formData = new FormData();
+          formData.append('username', 'Chris');
+          fetch('/api/auth/register.php', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(formData)
+          })
+          .then(() => JSON.parse(JSON.stringify(formData)))
+          .then((result) => {
+            console.log('Success:', result);
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });" 
+          x-data="register()">
           <div>
             <div class="flex -mx-3">
               <div class="w-1/2 px-3 mb-5">
