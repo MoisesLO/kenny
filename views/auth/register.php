@@ -89,21 +89,10 @@
         </div>
         <form x-on:submit.prevent="
           let formData = new FormData();
-          formData.append('username', 'Chris');
-          fetch('/api/auth/register.php', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(formData)
-          })
-          .then(() => JSON.parse(JSON.stringify(formData)))
-          .then((result) => {
-            console.log('Success:', result);
-          })
-          .catch((error) => {
-            console.error('Error:', error);
-          });" 
+          axios.post('/api/auth/register.php', { registro: registro }).then( res => {
+            console.log(res.data)            
+          });
+          " 
           x-data="register()">
           <div>
             <div class="flex -mx-3">
