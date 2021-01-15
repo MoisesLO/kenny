@@ -19,12 +19,16 @@
     <!-- Axios -->
     <script src="/assets/js/axios.min.js"></script>
 
+    <!-- Alpine Js -->
+    <script src="/assets/js/alpine.min.js"></script>
+
+    <!-- Configuracion Alpine -->
     <script src="/assets/js/init-alpine.js"></script>
 
-    <!-- Title -->
+    <!-- Titulo -->
     <title>Document</title>
 
 </head>
-<body>
+<body :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
     
 

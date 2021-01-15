@@ -1,4 +1,4 @@
 <?php
-	header('Location: /views/main/');
+	header('Location: /views/login/');
 	exit;
 ?>
