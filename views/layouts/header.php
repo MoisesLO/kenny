@@ -6,13 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Tailwind Css -->
-    <link href="/assets/css/tailwind.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/tailwind.output.css" />
+    <!--<link href="/assets/css/tailwind.min.css" rel="stylesheet">-->
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Material Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css" rel="stylesheet">
 
     <!-- Axios -->
     <script src="/assets/js/axios.min.js"></script>
+
+    <script src="/assets/js/init-alpine.js"></script>
 
     <!-- Title -->
     <title>Document</title>
