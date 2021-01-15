@@ -92,8 +92,7 @@
           axios.post('/api/auth/register.php', { registro: registro }).then( res => {
             if(res.data == true){
               window.location.href = '/views/auth/login.php';
-            }
-            console.log(res.data)            
+            }            
           });
           " 
           x-data="register()">
