@@ -11,7 +11,7 @@
           <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
             Lista de Documentos
           </h2>
-          <a href="#" class="flex items-center px-4 py-2 text-sm font-medium leading-5 transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">Nuevo</a>
+          <a href="#" class="flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple mb-4" style="width: 13%">Nuevo Documento</a>
           <!-- CTA -->
           <!-- <a class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple"
             href="https://github.com/estevanmaito/windmill-dashboard">
