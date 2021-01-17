@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Tailwind Css -->
-
     <link rel="stylesheet" href="/assets/css/tailwind.output.css" />
+    
     <!--<link href="/assets/css/tailwind.min.css" rel="stylesheet">-->
 
 
@@ -26,6 +26,6 @@
     <title>Document</title>
 
 </head>
-<body :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
+<body :class="{ 'theme-dark': dark }" x-data="data()" x-init="generateInvoiceNumber(111111, 999999);" lang="en">
     
 
