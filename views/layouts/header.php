@@ -22,9 +22,6 @@
     <!-- Alpine Js -->
     <script src="/assets/js/alpine.min.js"></script>
 
-
-
-
     <!-- Titulo -->
     <title>Document</title>
 
