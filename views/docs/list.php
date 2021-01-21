@@ -1,15 +1,16 @@
+<!-- Header -->
 <?php include "../layouts/header_.php" ?>
 
 <body class="bg-gray-200" x-data="data()" x-init="init()">
   <div class="h-screen w-full flex overflow-hidden">
 
+    <!-- Sidebar -->
     <?php include "../layouts/sidebar_.php" ?>
 
     <main class="flex-1 flex flex-col bg-gray-100 dark:bg-gray-700 transition duration-500 ease-in-out overflow-y-auto">
       <div class="mx-10 my-2">
 
-        <nav
-          class="flex flex-row justify-between border-b dark:border-gray-600 dark:text-gray-400 transition duration-500 ease-in-out">
+        <nav class="flex flex-row justify-between border-b dark:border-gray-600 dark:text-gray-400 transition duration-500 ease-in-out">
           <div class="flex">
             <!-- Top NavBar -->
 
@@ -83,8 +84,7 @@
                       <div class="flex items-center text-sm">
                         <!-- Avatar with inset shadow -->
                         <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                          <img class="object-cover w-full h-full rounded-full" src="../../assets/img/f.png" alt=""
-                            loading="lazy" />
+                          <img class="object-cover w-full h-full rounded-full" src="../../assets/img/f.png" alt="" loading="lazy" />
                           <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                         </div>
                         <div>
@@ -104,8 +104,7 @@
                       30-01-1983
                     </td>
                     <td class="px-4 py-3 text-sm">
-                      <span
-                        class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                      <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
                         Enviado
                       </span>
                     </td>
@@ -118,31 +117,19 @@
                       <!-- Option -->
                       <div class="relative inline-block text-left">
                         <div>
-                          <button @click="open = !open" type="button"
-                            class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white dark:bg-gray-100 dark:text-gray-400 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-                            id="options-menu" aria-haspopup="true" aria-expanded="true">
+                          <button @click="open = !open" type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white dark:bg-gray-100 dark:text-gray-400 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" id="options-menu" aria-haspopup="true" aria-expanded="true">
                             Opciones
                             <!-- Heroicon name: chevron-down -->
-                            <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                              fill="currentColor" aria-hidden="true">
-                              <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd" />
+                            <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
                           </button>
                         </div>
-                        <div x-show="open"
-                          class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10">
+                        <div x-show="open" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10">
                           <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                            <a href="#"
-                              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                              role="menuitem">Account settings</a>
-                            <a href="#"
-                              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                              role="menuitem">Support</a>
-                            <a href="#"
-                              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                              role="menuitem">License</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Account settings</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Support</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">License</a>
                           </div>
                         </div>
                       </div>
@@ -156,8 +143,7 @@
           </div>
 
           <!-- Pagination -->
-          <div
-            class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
+          <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
             <span class="flex items-center col-span-3">
               Showing 21-30 of 100
             </span>
@@ -167,12 +153,9 @@
               <nav aria-label="Table navigation">
                 <ul class="inline-flex items-center">
                   <li>
-                    <button class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"
-                      aria-label="Previous">
+                    <button class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple" aria-label="Previous">
                       <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 20 20">
-                        <path
-                          d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                          clip-rule="evenodd" fill-rule="evenodd"></path>
+                        <path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" fill-rule="evenodd"></path>
                       </svg>
                     </button>
                   </li>
@@ -187,8 +170,7 @@
                     </button>
                   </li>
                   <li>
-                    <button
-                      class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple">
+                    <button class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple">
                       3
                     </button>
                   </li>
@@ -211,12 +193,9 @@
                     </button>
                   </li>
                   <li>
-                    <button class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"
-                      aria-label="Next">
+                    <button class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple" aria-label="Next">
                       <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 20 20">
-                        <path
-                          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                          clip-rule="evenodd" fill-rule="evenodd"></path>
+                        <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" fill-rule="evenodd"></path>
                       </svg>
                     </button>
                   </li>
@@ -236,11 +215,9 @@
       return {
         open: false,
         open_: false,
-        documentos: [
-          {
+        documentos: [{
 
-          }
-        ],
+        }],
         init() {
           axios.get('/api/docs/list.php').then(res => {
             this.documentos = res.data;
@@ -251,4 +228,6 @@
     }
   </script>
 </body>
+
+<!-- Footer -->
 <?php include "../layouts/footer_.php" ?>
