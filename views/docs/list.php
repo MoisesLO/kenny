@@ -242,7 +242,7 @@
           }
         ],
         init() {
-          axios.get('http://invoice.localhost/api/docs/list.php').then(res => {
+          axios.get('/api/docs/list.php').then(res => {
             this.documentos = res.data;
             console.log(res.data);
           })
