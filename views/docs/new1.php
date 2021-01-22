@@ -115,6 +115,7 @@
               </div>
 
               <div class="flex mb-8 justify-between">
+                <!-- Datos de Numero de Factura -->
                 <div class="w-2/4">
                   <div class="mb-2 md:mb-1 md:flex items-center">
                     <label class="w-32 text-gray-700 block font-semibold text-sm uppercase tracking-wide">
@@ -177,19 +178,18 @@
                     </div>
                   </div>
                   <input name="photo" id="fileInput" accept="image/*" class="hidden" type="file" onChange="let file = this.files[0];
-                                    var reader = new FileReader();
-
-                                    reader.onload = function (e) {
-                                        document.getElementById('image').src = e.target.result;
-                                        document.getElementById('image2').src = e.target.result;
-                                    };
-                                
-                                    reader.readAsDataURL(file);
-                                ">
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                      document.getElementById('image').src = e.target.result;
+                      document.getElementById('image2').src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);">
                 </div>
               </div>
 
               <div class="flex flex-wrap justify-between mb-8">
+
+                <!-- Datos del Cliente -->
                 <div class="w-full md:w-1/3 mb-2 md:mb-0">
                   <label class="text-gray-700 block mb-1 font-semibold text-sm uppercase tracking-wide">
                     Facturar a :
@@ -204,6 +204,8 @@
                     class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                     id="inline-full-name" type="text" placeholder="Direcion" x-model="billing.extra">
                 </div>
+
+                <!-- Datos de tu empresa -->
                 <div class="w-full md:w-1/3">
                   <label class="text-gray-700 block mb-1 font-semibold text-sm uppercase tracking-wide">
                     tu Empresa:
@@ -222,6 +224,7 @@
                 </div>
               </div>
 
+              <!-- Header Items -->
               <div class="flex -mx-1 border-b py-2 items-start">
                 <div class="flex-1 px-1">
                   <p class="text-gray-800 uppercase tracking-wide text-sm font-bold">Descripcion</p>
@@ -248,6 +251,8 @@
                 <div class="px-1 w-20 text-center">
                 </div>
               </div>
+
+              <!-- Items -->
               <template x-for="invoice in items" :key="invoice.id">
                 <div class="flex -mx-1 py-2 border-b">
                   <div class="flex-1 px-1">
@@ -255,11 +260,11 @@
                   </div>
 
                   <div class="px-1 w-20 text-right">
-                    <p class="text-gray-800" x-text="invoice.qty"></p>
+                    <p class="text-gray-800" x-text="invoice.cantidad"></p>
                   </div>
 
                   <div class="px-1 w-32 text-right">
-                    <p class="text-gray-800" x-text="numberFormat(invoice.rate)"></p>
+                    <p class="text-gray-800" x-text="numberFormat(invoice.precio_unitario_con_igv)"></p>
                   </div>
 
                   <div class="px-1 w-32 text-right">
@@ -268,7 +273,7 @@
 
                   <div class="px-1 w-20 text-right">
                     <a href="#" class="text-red-500 hover:text-red-600 text-sm font-semibold"
-                       @click.prevent="deleteItem(invoice.id)">Delete</a>
+                       @click.prevent="deleteItem(invoice.id)">Eliminar</a>
                   </div>
                 </div>
               </template>
@@ -401,11 +406,11 @@
                     </div>
 
                     <div class="px-1 w-32 text-right">
-                      <p class="text-gray-800" x-text="invoice.qty"></p>
+                      <p class="text-gray-800" x-text="invoice.cantidad"></p>
                     </div>
 
                     <div class="px-1 w-32 text-right">
-                      <p class="text-gray-800" x-text="numberFormat(invoice.rate)"></p>
+                      <p class="text-gray-800" x-text="numberFormat(invoice.precio_unitario_con_igv)"></p>
                     </div>
 
                     <div class="px-1 w-32 text-right">
@@ -474,7 +479,7 @@
                         <label class="text-gray-700 block mb-1 font-semibold text-sm uppercase tracking-wide">Cantidad</label>
                         <input
                           class="text-right mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                          id="inline-full-name" type="text" x-model="item.qty">
+                          id="inline-full-name" type="text" x-model="item.cantidad">
                       </div>
 
                       <div class="mb-4 w-32 mr-2">
@@ -483,14 +488,14 @@
                         </label>
                         <input
                           class="text-right mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                          id="inline-full-name" type="text" x-model="item.rate">
+                          id="inline-full-name" type="text" x-model="item.precio_unitario_con_igv">
                       </div>
 
                       <div class="mb-4 w-32">
                         <label class="text-gray-700 block mb-1 font-semibold text-sm uppercase tracking-wide">Total</label>
                         <input
                           class="text-right mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                          id="inline-full-name" type="text" x-model="item.total = item.qty * item.rate">
+                          id="inline-full-name" type="text" x-model="item.total = item.cantidad * item.precio_unitario_con_igv">
                       </div>
                     </div>
 
@@ -631,8 +636,8 @@
       item: {
         id: '',
         name: '',
-        qty: 0,
-        rate: 0,
+        cantidad: 0,
+        precio_unitario_con_igv: 0,
         total: 0,
         gst: 18
       },
@@ -656,10 +661,10 @@
         this.items.push({
           id: this.generateUUID(),
           name: this.item.name,
-          qty: this.item.qty,
-          rate: this.item.rate,
-          gst: this.calculateGST(this.item.gst, this.item.rate),
-          total: this.item.qty * this.item.rate
+          cantidad: this.item.cantidad,
+          precio_unitario_con_igv: this.item.precio_unitario_con_igv,
+          gst: this.calculateGST(this.item.gst, this.item.precio_unitario_con_igv),
+          total: this.item.cantidad * this.item.precio_unitario_con_igv
         })
 
         this.itemTotal();
@@ -667,8 +672,8 @@
 
         this.item.id = '';
         this.item.name = '';
-        this.item.qty = 0;
-        this.item.rate = 0;
+        this.item.cantidad = 0;
+        this.item.precio_unitario_con_igv = 0;
         this.item.gst = 18;
         this.item.total = 0;
       },
@@ -688,7 +693,7 @@
 
       itemTotalGST() {
         this.totalGST = this.numberFormat(this.items.length > 0 ? this.items.reduce((result, item) => {
-          return result + (item.gst * item.qty);
+          return result + (item.gst * item.cantidad);
         }, 0) : 0);
       },
 
