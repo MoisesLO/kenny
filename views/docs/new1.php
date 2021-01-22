@@ -227,23 +227,23 @@
               <!-- Header Items -->
               <div class="flex -mx-1 border-b py-2 items-start">
                 <div class="flex-1 px-1">
-                  <p class="text-gray-800 uppercase tracking-wide text-sm font-bold">Descripcion</p>
+                  <p class="text-gray-700 uppercase tracking-wide text-sm font-semibold">Descripcion</p>
                 </div>
 
                 <div class="px-1 w-20 text-right">
-                  <p class="text-gray-800 uppercase tracking-wide text-sm font-bold">Cantidad</p>
+                  <p class="text-gray-700 uppercase tracking-wide text-sm font-semibold">Cantidad</p>
                 </div>
 
                 <div class="px-1 w-32 text-right">
                   <p class="leading-none">
-                    <span class="block uppercase tracking-wide text-sm font-bold text-gray-800">P. Unitario</span>
+                    <span class="block uppercase tracking-wide text-sm font-semibold text-gray-700">P. Unitario</span>
                     <span class="font-medium text-xs text-gray-500">(Incl. IGV)</span>
                   </p>
                 </div>
 
                 <div class="px-1 w-32 text-right">
                   <p class="leading-none">
-                    <span class="block uppercase tracking-wide text-sm font-bold text-gray-800">Monto</span>
+                    <span class="block uppercase tracking-wide text-sm font-semibold text-gray-700">Total</span>
                     <span class="font-medium text-xs text-gray-500">(Incl. IGV)</span>
                   </p>
                 </div>
@@ -260,7 +260,7 @@
                   </div>
 
                   <div class="px-1 w-20 text-right">
-                    <p class="text-gray-800" x-text="invoice.cantidad"></p>
+                    <p class="text-gray-700" x-text="invoice.cantidad"></p>
                   </div>
 
                   <div class="px-1 w-32 text-right">
@@ -376,7 +376,7 @@
 
                 <div class="flex flex-wrap -mx-1 border-b py-2 items-start">
                   <div class="flex-1 px-1">
-                    <p class="text-gray-600 uppercase tracking-wide text-xs font-bold">Description</p>
+                    <p class="text-gray-600 uppercase tracking-wide text-xs font-semibold">Description</p>
                   </div>
 
                   <div class="px-1 w-32 text-right">
@@ -406,7 +406,7 @@
                     </div>
 
                     <div class="px-1 w-32 text-right">
-                      <p class="text-gray-800" x-text="invoice.cantidad"></p>
+                      <p class="text-gray-700" x-text="invoice.cantidad"></p>
                     </div>
 
                     <div class="px-1 w-32 text-right">
@@ -634,6 +634,7 @@
       netTotal: 0,
 
       item: {
+        id: '',
         id: '',
         name: '',
         cantidad: 0,
