@@ -635,10 +635,10 @@
 
       item: {
         id: '',
-        id: '',
         name: '',
         cantidad: 0,
         precio_unitario_con_igv: 0,
+        precio_unitario_sin_igv: 0,
         total: 0,
         gst: 18
       },
