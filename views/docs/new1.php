@@ -710,9 +710,9 @@
       },
 
       numberFormat(amount) {
-        return amount.toLocaleString("en-US", {
+        return amount.toLocaleString("es-PE", {
           style: "currency",
-          currency: "INR"
+          currency: "PEN"
         });
       },
 
