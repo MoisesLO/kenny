@@ -226,12 +226,19 @@
 
               <!-- Header Items -->
               <div class="flex -mx-1 border-b py-2 items-start">
+                <div class="px-1 w-20 text-right">
+                  <p class="text-gray-700 uppercase tracking-wide text-sm font-semibold">Cantidad</p>
+                </div>
+
+                <div class="w-20 px-1">
+                  <p class="text-gray-700 uppercase tracking-wide text-sm font-semibold">Unidad</p>
+                </div>
+
                 <div class="flex-1 px-1">
                   <p class="text-gray-700 uppercase tracking-wide text-sm font-semibold">Descripcion</p>
                 </div>
 
-                <div class="px-1 w-20 text-right">
-                  <p class="text-gray-700 uppercase tracking-wide text-sm font-semibold">Cantidad</p>
+                <div class="px-1 w-20 text-center">
                 </div>
 
                 <div class="px-1 w-32 text-right">
@@ -248,8 +255,7 @@
                   </p>
                 </div>
 
-                <div class="px-1 w-20 text-center">
-                </div>
+
               </div>
 
               <!-- Items -->
@@ -636,11 +642,13 @@
       item: {
         id: '',
         name: '',
+        unidad: '',
         cantidad: 0,
-        precio_unitario_con_igv: 0,
         precio_unitario_sin_igv: 0,
+        precio_unitario_con_igv: 0,
+        igv: 0,
+        gst: 18,
         total: 0,
-        gst: 18
       },
 
       billing: {
@@ -673,9 +681,12 @@
 
         this.item.id = '';
         this.item.name = '';
+        this.item.unidad = '';
         this.item.cantidad = 0;
+        this.item.precio_unitario_sin_igv = 0;
         this.item.precio_unitario_con_igv = 0;
         this.item.gst = 18;
+        this.item.igv = 0;
         this.item.total = 0;
       },
 
