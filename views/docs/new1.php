@@ -226,21 +226,28 @@
 
               <!-- Header Items -->
               <div class="flex -mx-1 border-b py-2 items-start">
+
+                <!-- Cantidad -->
                 <div class="px-1 w-20 text-right">
                   <p class="text-gray-700 uppercase tracking-wide text-sm font-semibold">Cantidad</p>
                 </div>
 
+                <!-- Unidad -->
                 <div class="w-20 px-1">
                   <p class="text-gray-700 uppercase tracking-wide text-sm font-semibold">Unidad</p>
                 </div>
 
+                <!-- Descriptcion -->
                 <div class="flex-1 px-1">
                   <p class="text-gray-700 uppercase tracking-wide text-sm font-semibold">Descripcion</p>
                 </div>
 
+                <!-- Eliminar -->
                 <div class="px-1 w-20 text-center">
                 </div>
 
+
+                <!--Precio Unitario -->
                 <div class="px-1 w-32 text-right">
                   <p class="leading-none">
                     <span class="block uppercase tracking-wide text-sm font-semibold text-gray-700">P. Unitario</span>
@@ -248,6 +255,7 @@
                   </p>
                 </div>
 
+                <!-- Total -->
                 <div class="px-1 w-32 text-right">
                   <p class="leading-none">
                     <span class="block uppercase tracking-wide text-sm font-semibold text-gray-700">Total</span>
