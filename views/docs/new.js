@@ -76,6 +76,21 @@ window.addEventListener('DOMContentLoaded', function () {
 
 function invoices() {
   return {
+    factura: {
+      numero: null,
+      serie: null,
+      fecha: null,
+      fechaEmision: null,
+      clienteRazon: null,
+      clienteDocumento: null,
+      clienteDireccion: null,
+      empresaRazon: null,
+      empresaDocumento: null,
+      empresaDireccion: null,
+      items: [
+
+      ]
+    },
     items: [],
     invoiceNumber: 0,
     invoiceDate: '',
