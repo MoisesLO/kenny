@@ -227,16 +227,6 @@
               <!-- Header Items -->
               <div class="flex -mx-1 border-b py-2 items-start">
 
-                <!-- Cantidad -->
-                <div class="px-1 w-20 text-right">
-                  <p class="text-gray-700 uppercase tracking-wide text-sm font-semibold">Cantidad</p>
-                </div>
-
-                <!-- Unidad -->
-                <div class="w-20 px-1">
-                  <p class="text-gray-700 uppercase tracking-wide text-sm font-semibold">Unidad</p>
-                </div>
-
                 <!-- Descriptcion -->
                 <div class="flex-1 px-1">
                   <p class="text-gray-700 uppercase tracking-wide text-sm font-semibold">Descripcion</p>
@@ -246,6 +236,15 @@
                 <div class="px-1 w-20 text-center">
                 </div>
 
+                <!-- Unidad -->
+                <div class="w-20 px-1">
+                  <p class="text-gray-700 uppercase tracking-wide text-sm font-semibold">Unidad</p>
+                </div>
+
+                <!-- Cantidad -->
+                <div class="px-1 w-32 text-right">
+                  <p class="text-gray-700 uppercase tracking-wide text-sm font-semibold">Cantidad</p>
+                </div>
 
                 <!--Precio Unitario -->
                 <div class="px-1 w-32 text-right">
@@ -263,32 +262,43 @@
                   </p>
                 </div>
 
-
               </div>
 
               <!-- Items -->
               <template x-for="invoice in items" :key="invoice.id">
                 <div class="flex -mx-1 py-2 border-b">
+
+                  <!-- Descripcion -->
                   <div class="flex-1 px-1">
                     <p class="text-gray-800" x-text="invoice.name"></p>
                   </div>
 
+                  <!-- Eliminar -->
+                  <div class="px-1 w-20 text-center">
+                    <a href="#" class="text-red-500 hover:text-red-600 text-sm font-semibold"
+                       @click.prevent="deleteItem(invoice.id)">Eliminar</a>
+                  </div>
+
+                  <!-- Unidad -->
+                  <div class="px-1 w-32">
+                    <p class="text-gray-700" x-text="invoice.unidad"></p>
+                  </div>
+
+                  <!-- Cantidad -->
                   <div class="px-1 w-20 text-right">
                     <p class="text-gray-700" x-text="invoice.cantidad"></p>
                   </div>
 
+                  <!-- Precio Unitario con IGV -->
                   <div class="px-1 w-32 text-right">
                     <p class="text-gray-800" x-text="numberFormat(invoice.precio_unitario_con_igv)"></p>
                   </div>
 
+                  <!-- Total -->
                   <div class="px-1 w-32 text-right">
                     <p class="text-gray-800" x-text="numberFormat(invoice.total)"></p>
                   </div>
 
-                  <div class="px-1 w-20 text-right">
-                    <a href="#" class="text-red-500 hover:text-red-600 text-sm font-semibold"
-                       @click.prevent="deleteItem(invoice.id)">Eliminar</a>
-                  </div>
                 </div>
               </template>
 
@@ -463,6 +473,8 @@
               <div style=" background-color: rgba(0, 0, 0, 0.8)"
                    class="fixed z-40 top-0 right-0 left-0 bottom-0 h-full w-full" x-show.transition.opacity="openModal">
                 <div class="p-4 max-w-xl mx-auto relative absolute left-0 right-0 overflow-hidden mt-24">
+
+                  <!-- Boton Close -->
                   <div
                     class="shadow absolute right-0 top-0 w-10 h-10 rounded-full bg-white text-gray-500 hover:text-gray-800 inline-flex items-center justify-center cursor-pointer"
                     x-on:click="openModal = !openModal">
@@ -474,13 +486,15 @@
 
                   <div class="shadow w-full rounded-lg bg-white overflow-hidden w-full block p-8">
 
+                    <!-- Titulo -->
                     <h2 class="font-semibold text-2xl mb-6 text-gray-700 border-b pb-2">
                       Agregar Productos
                     </h2>
 
+                    <!-- Descripcion -->
                     <div class="mb-4">
                       <label
-                        class="text-gray-700 block mb-1 font-semibold text-sm uppercase tracking-wide">
+                        class="text-gray-700 block mb-1 font-semibold text-sm tracking-wide">
                         Descripcion
                       </label>
                       <input
@@ -489,47 +503,78 @@
                     </div>
 
                     <div class="flex">
-                      <div class="mb-4 w-32 mr-2">
-                        <label class="text-gray-700 block mb-1 font-semibold text-sm uppercase tracking-wide">Cantidad</label>
+                      <div class="mb-4 w-1/3 mr-2">
+                        <label class="text-gray-700 block mb-1 font-semibold text-sm tracking-wide">
+                          Cantidad
+                        </label>
                         <input
                           class="text-right mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                           id="inline-full-name" type="text" x-model="item.cantidad">
                       </div>
 
-                      <div class="mb-4 w-32 mr-2">
-                        <label class="text-gray-700 block mb-1 font-semibold text-sm uppercase tracking-wide">
-                          Precio Unitario
-                        </label>
+                      <div class="mb-4 w-1/3 mr-2">
+                        <p class="leading-none text-right">
+                          <span class="text-gray-700 block mb-1 font-semibold text-sm tracking-wide">P. Unitario <span class="font-medium text-xs text-gray-500">(Incl. IGV)</span> </span>
+
+                        </p>
                         <input
                           class="text-right mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                           id="inline-full-name" type="text" x-model="item.precio_unitario_con_igv">
                       </div>
 
-                      <div class="mb-4 w-32">
-                        <label class="text-gray-700 block mb-1 font-semibold text-sm uppercase tracking-wide">Total</label>
+                      <div class="mb-4 w-1/3">
+                        <label class="text-gray-700 block mb-1 font-semibold text-sm text-right tracking-wide">Total</label>
                         <input
                           class="text-right mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                           id="inline-full-name" type="text" x-model="item.total = item.cantidad * item.precio_unitario_con_igv">
                       </div>
                     </div>
 
-                    <div class="mb-4 w-32">
-                      <div class="relative">
-                        <label class="text-gray-800 block mb-1 font-bold text-sm uppercase tracking-wide">IGV</label>
-                        <select
-                          class="text-gray-700 block appearance-none w-full bg-gray-200 border-2 border-gray-200 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                          x-model="item.gst">
-                          <option value="18">GST 18%</option>
-                          <option value="28">GST 28%</option>
-                        </select>
-                        <div
-                          class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-600">
-                          <svg class="fill-current h-4 w-4 mt-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                          </svg>
+                    <div class="flex">
+                      <!-- Unidad -->
+                      <div class="mb-4 w-40 mr-2">
+                        <div class="relative">
+                          <label class="text-gray-700 block mb-1 font-semibold text-sm tracking-wide">
+                            Medida
+                          </label>
+                          <select
+                            class="text-gray-700 block appearance-none w-full bg-gray-200 border-2 border-gray-200 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                            x-model="item.unidad">
+                            <option value="UND">Unidad</option>
+                            <option value="GR">Gramos</option>
+                            <option value="KG">Kilogramos</option>
+                          </select>
+                          <div
+                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-600">
+                            <svg class="fill-current h-4 w-4 mt-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- IGV -->
+                      <div class="mb-4 w-32 mr-2">
+                        <div class="relative">
+                          <label class="text-gray-700 block mb-1 font-semibold text-sm uppercase tracking-wide">
+                            IGV
+                          </label>
+                          <select
+                            class="text-gray-700 block appearance-none w-full bg-gray-200 border-2 border-gray-200 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                            x-model="item.igv">
+                            <option value="18">IGV 18%</option>
+                            <option value="28">IGV 28%</option>
+                          </select>
+                          <div
+                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-600">
+                            <svg class="fill-current h-4 w-4 mt-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                            </svg>
+                          </div>
                         </div>
                       </div>
                     </div>
+
 
                     <div class="mt-8 text-right">
                       <button type="button"
@@ -654,7 +699,7 @@
         cantidad: 0,
         precio_unitario_sin_igv: 0,
         precio_unitario_con_igv: 0,
-        igv: 0,
+        igv: 18,
         gst: 18,
         total: 0,
       },
@@ -678,8 +723,10 @@
         this.items.push({
           id: this.generateUUID(),
           name: this.item.name,
+          unidad: this.item.unidad,
           cantidad: this.item.cantidad,
           precio_unitario_con_igv: this.item.precio_unitario_con_igv,
+          igv: this.calculateIGV(),
           gst: this.calculateGST(this.item.gst, this.item.precio_unitario_con_igv),
           total: this.item.cantidad * this.item.precio_unitario_con_igv
         })
@@ -694,8 +741,14 @@
         this.item.precio_unitario_sin_igv = 0;
         this.item.precio_unitario_con_igv = 0;
         this.item.gst = 18;
+
         this.item.igv = 0;
         this.item.total = 0;
+      },
+
+
+      calculateIGV(){
+
       },
 
       deleteItem(uuid) {

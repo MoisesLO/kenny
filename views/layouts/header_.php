@@ -8,7 +8,7 @@
     <title>Invoice Generator build with TailwindCSS and AlpineJS. by mithicher. </title>
 
     <!-- Tailwind Css -->
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@1.4.6/dist/tailwind.min.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
     <!-- Alpine Js -->
     <script src="/assets/js/alpine.min.js"></script>
