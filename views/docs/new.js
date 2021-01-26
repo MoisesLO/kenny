@@ -77,8 +77,8 @@ window.addEventListener('DOMContentLoaded', function () {
 function invoices() {
   return {
     factura: {
-      numero: null,
-      serie: null,
+      numero: '12345',
+      serie: 'F001',
       fecha: null,
       fechaEmision: null,
       clienteRazon: null,
@@ -125,6 +125,10 @@ function invoices() {
     showTooltip: false,
     showTooltip2: false,
     openModal: false,
+
+    addInvoice(){
+      console.log(JSON.parse(JSON.stringify(this.factura)));
+    },
 
     addItem() {
       this.items.push({

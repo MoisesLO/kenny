@@ -115,31 +115,33 @@
               </div>
 
               <div class="flex mb-8 justify-between">
+
                 <!-- Datos de Numero de Factura -->
                 <div class="w-2/4">
+
+                  <!-- Numero -->
                   <div class="mb-2 md:mb-1 md:flex items-center">
                     <label class="w-32 text-gray-700 block font-semibold text-sm uppercase tracking-wide">
-                      Factura No.
+                      Numero
                     </label>
                     <span class="mr-4 inline-block hidden md:block">:</span>
                     <div class="flex-1">
                       <input
                         class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                        id="inline-full-name" type="text" placeholder="eg. #INV-100001" x-model="invoiceNumber">
+                        type="text" placeholder="eg. #INV-100001" x-model="factura.numero">
                     </div>
                   </div>
 
+                  <!-- Serie -->
                   <div class="mb-2 md:mb-1 md:flex items-center">
                     <label class="w-32 text-gray-700 block font-semibold text-sm uppercase tracking-wide">
-                      Factura Fecha
+                      Serie
                     </label>
                     <span class="mr-4 inline-block hidden md:block">:</span>
                     <div class="flex-1">
                       <input
-                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 js-datepicker"
-                        type="text" id="datepicker1" placeholder="eg. 17 Feb, 2020" x-model="invoiceDate"
-                        x-on:change="invoiceDate = document.getElementById('datepicker1').value" autocomplete="off"
-                        readonly>
+                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                        type="text" placeholder="F001" x-model="factura.serie">
                     </div>
                   </div>
 
@@ -150,9 +152,9 @@
                     <span class="mr-4 inline-block hidden md:block">:</span>
                     <div class="flex-1">
                       <input
-                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 js-datepicker-2"
-                        id="datepicker2" type="text" placeholder="eg. 17 Mar, 2020" x-model="invoiceDueDate"
-                        x-on:change="invoiceDueDate = document.getElementById('datepicker2').value" autocomplete="off"
+                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 js-datepicker"
+                        id="datepicker" type="text" placeholder="eg. 17 Mar, 2020" x-model="factura.fecha"
+                        x-on:change="factura.fecha = document.getElementById('datepicker').value" autocomplete="off"
                         readonly>
                     </div>
                   </div>
@@ -196,13 +198,13 @@
                   </label>
                   <input
                     class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                    id="inline-full-name" type="text" placeholder="Razon Social" x-model="billing.name">
+                    type="text" placeholder="Razon Social" x-model="billing.name">
                   <input
                     class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                    id="inline-full-name" type="text" placeholder="RUC" x-model="billing.address">
+                    type="text" placeholder="RUC" x-model="billing.address">
                   <input
                     class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                    id="inline-full-name" type="text" placeholder="Direcion" x-model="billing.extra">
+                    type="text" placeholder="Direcion" x-model="billing.extra">
                 </div>
 
                 <!-- Datos de tu empresa -->
@@ -212,15 +214,15 @@
                   </label>
                   <input
                     class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                    id="inline-full-name" type="text" placeholder="Your company name" x-model="from.name">
+                    type="text" placeholder="Your company name" x-model="from.name">
 
                   <input
                     class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                    id="inline-full-name" type="text" placeholder="Your company address" x-model="from.address">
+                    type="text" placeholder="Your company address" x-model="from.address">
 
                   <input
                     class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                    id="inline-full-name" type="text" placeholder="Additional info" x-model="from.extra">
+                    type="text" placeholder="Additional info" x-model="from.extra">
                 </div>
               </div>
 
@@ -332,18 +334,24 @@
                 </div>
               </div>
 
-<!--              <div class="py-10 text-center">-->
-<!--                <p class="text-gray-600">Created by-->
-<!--                  <a-->
-<!--                    class="text-blue-600 hover:text-blue-500 border-b-2 border-blue-200 hover:border-blue-300"-->
-<!--                    href="https://twitter.com/mithicher">@mithicher</a>. Built with <a-->
-<!--                    class="text-blue-600 hover:text-blue-500 border-b-2 border-blue-200 hover:border-blue-300"-->
-<!--                    href="https://tailwindcss.com/">tailwindCSS</a> and <a href="https://github.com/alpinejs/alpine"-->
-<!--                                                                           class="text-blue-600 hover:text-blue-500 border-b-2 border-blue-200 hover:border-blue-300">AlpineJS</a>.-->
-<!--                  SVG icons from <a href="https://github.com/tabler/tabler-icons"-->
-<!--                                    class="text-blue-600 hover:text-blue-500 border-b-2 border-blue-200 hover:border-blue-300">Tabler-->
-<!--                    Icons</a>.</p>-->
-<!--              </div>-->
+              <div class="py-10 text-right">
+                <a
+                  class="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm"
+                  @click="addInvoice()">Enviar Factura</a>
+              </div>
+
+              <!--              <div class="py-10 text-center">-->
+              <!--                <p class="text-gray-600">Created by-->
+              <!--                  <a-->
+              <!--                    class="text-blue-600 hover:text-blue-500 border-b-2 border-blue-200 hover:border-blue-300"-->
+              <!--                    href="https://twitter.com/mithicher">@mithicher</a>. Built with <a-->
+              <!--                    class="text-blue-600 hover:text-blue-500 border-b-2 border-blue-200 hover:border-blue-300"-->
+              <!--                    href="https://tailwindcss.com/">tailwindCSS</a> and <a href="https://github.com/alpinejs/alpine"-->
+              <!--                                                                           class="text-blue-600 hover:text-blue-500 border-b-2 border-blue-200 hover:border-blue-300">AlpineJS</a>.-->
+              <!--                  SVG icons from <a href="https://github.com/tabler/tabler-icons"-->
+              <!--                                    class="text-blue-600 hover:text-blue-500 border-b-2 border-blue-200 hover:border-blue-300">Tabler-->
+              <!--                    Icons</a>.</p>-->
+              <!--              </div>-->
 
               <!-- Print Template -->
               <div id="js-print-template" x-ref="printTemplate" class="hidden">
@@ -499,7 +507,7 @@
                       </label>
                       <input
                         class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                        id="inline-full-name" type="text" x-model="item.name">
+                        type="text" x-model="item.name">
                     </div>
 
                     <div class="flex">
@@ -511,25 +519,28 @@
                         </label>
                         <input
                           class="text-right mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                          id="inline-full-name" placeholder="0" type="text" x-model="item.cantidad">
+                          placeholder="0" type="text" x-model="item.cantidad">
                       </div>
 
                       <!-- Precio Unitario  con IGV -->
                       <div class="mb-4 w-1/3 mr-2">
                         <p class="leading-none text-right">
-                          <span class="text-gray-700 block mb-1 font-semibold text-sm tracking-wide">P. Unitario <span class="font-medium text-xs text-gray-500">(Incl. IGV)</span> </span>
+                          <span class="text-gray-700 block mb-1 font-semibold text-sm tracking-wide">P. Unitario <span
+                              class="font-medium text-xs text-gray-500">(Incl. IGV)</span> </span>
                         </p>
                         <input
                           class="text-right mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                          id="inline-full-name" type="text" placeholder="0.00" x-model="item.precio_unitario_con_igv">
+                          type="text" placeholder="0.00" x-model="item.precio_unitario_con_igv">
                       </div>
 
                       <!-- Total -->
                       <div class="mb-4 w-1/3">
-                        <label class="text-gray-700 block mb-1 font-semibold text-sm text-right tracking-wide">Total</label>
+                        <label
+                          class="text-gray-700 block mb-1 font-semibold text-sm text-right tracking-wide">Total</label>
                         <input
                           class="text-right mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                          id="inline-full-name" type="text" placeholder="0.00" x-model="item.total = item.cantidad * item.precio_unitario_con_igv">
+                          type="text" placeholder="0.00"
+                          x-model="item.total = item.cantidad * item.precio_unitario_con_igv">
                       </div>
                     </div>
 
@@ -549,7 +560,8 @@
                           </select>
                           <div
                             class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-600">
-                            <svg class="fill-current h-4 w-4 mt-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <svg class="fill-current h-4 w-4 mt-6" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 20 20">
                               <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                             </svg>
                           </div>
@@ -570,7 +582,8 @@
                           </select>
                           <div
                             class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-600">
-                            <svg class="fill-current h-4 w-4 mt-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <svg class="fill-current h-4 w-4 mt-6" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 20 20">
                               <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                             </svg>
                           </div>
