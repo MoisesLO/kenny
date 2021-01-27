@@ -134,12 +134,13 @@ function invoices() {
         name: this.item.name,
         unidad: this.item.unidad,
         cantidad: this.item.cantidad,
-        precio_unitario_sin_igv: this.precio_unitario_sin_igv,
+        precio_unitario_sin_igv: this.calculatePrecioUnitarioSinIgv(this.item.precio_unitario_con_igv),
         precio_unitario_con_igv: this.item.precio_unitario_con_igv,
-        igv: this.calculateIGV(),
+        // Los unicos datos que conosco son cantidad y precio_unitario_con_igv
+        igv: this.calculateIGV(this.item.cantidad,this.item.precio_unitario_con_igv),
         gst: this.calculateGST(this.item.gst, this.item.precio_unitario_con_igv),
-        subtotal: this.calculateSubtotal(this.cantidad,this.item.precio_unitario_sin_igv,this.item.precio_unitario_con_igv),
-        total: this.item.cantidad * this.item.precio_unitario_con_igv
+        subtotal: this.calculateSubtotal(this.item.cantidad,this.item.precio_unitario_con_igv),
+        total: this.calculateTotal(this.item.cantidad, this.item.precio_unitario_con_igv)
       })
 
       this.itemTotal();
@@ -149,7 +150,7 @@ function invoices() {
       this.item.name = '';
       this.item.unidad = 'UND';
       this.item.cantidad = null;
-      this.item.precio_unitario_sin_igv = 0;
+      this.item.precio_unitario_sin_igv = null;
       this.item.precio_unitario_con_igv = null;
       this.item.gst = 18;
 
@@ -157,11 +158,19 @@ function invoices() {
       this.item.total = 0;
     },
 
-    calculateSubtotal(cantidad, precio_unitario_sin_igv, precio_unitario_con_igv){
-      return this.numberFormat((itemRate - (itemRate * (100 / (100 + GSTPercentage)))).toFixed(2));
+    calculateTotal(cantidad, precio_unitario_con_igv){
+      return this.numberFormat((cantidad * precio_unitario_con_igv).toFixed(2));
     },
-    calculateIGV() {
 
+    calculatePrecioUnitarioSinIgv(precio_unitario_con_igv){
+      return this.numberFormat((precio_unitario_con_igv * 0.82).toFixed(2));
+    },
+
+    calculateSubtotal(cantidad,precio_unitario_con_igv){
+      return this.numberFormat((cantidad * (precio_unitario_con_igv * 0.82)).toFixed(2));
+    },
+    calculateIGV(cantidad,precio_unitario_con_igv) {
+      return this.numberFormat((cantidad * (precio_unitario_con_igv - (precio_unitario_con_igv * 0.82))).toFixed(2));
     },
 
     deleteItem(uuid) {
