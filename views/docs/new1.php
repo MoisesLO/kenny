@@ -127,7 +127,7 @@
                     <span class="mr-4 inline-block hidden md:block">:</span>
                     <div class="flex-1">
                       <input
-                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                        class="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                         type="text" placeholder="eg. #INV-100001" x-model="factura.numero">
                     </div>
                   </div>
@@ -140,11 +140,12 @@
                     <span class="mr-4 inline-block hidden md:block">:</span>
                     <div class="flex-1">
                       <input
-                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                        class="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
                         type="text" placeholder="F001" x-model="factura.serie">
                     </div>
                   </div>
 
+                  <!-- Fecha Emision -->
                   <div class="mb-2 md:mb-1 md:flex items-center">
                     <label class="w-32 text-gray-700 block font-semibold text-sm uppercase tracking-wide">
                       Fecha Emision
@@ -152,17 +153,18 @@
                     <span class="mr-4 inline-block hidden md:block">:</span>
                     <div class="flex-1">
                       <input
-                        class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 js-datepicker"
+                        class="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-48 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500 js-datepicker"
                         id="datepicker" type="text" placeholder="eg. 17 Mar, 2020" x-model="factura.fecha"
                         x-on:change="factura.fecha = document.getElementById('datepicker').value" autocomplete="off"
                         readonly>
                     </div>
                   </div>
                 </div>
+
+                <!-- Logo Factura -->
                 <div>
                   <div class="w-32 h-32 mb-1 border rounded-lg overflow-hidden relative bg-gray-100">
                     <img id="image" class="object-cover w-full h-32" src="https://placehold.co/300x300/e2e8f0/e2e8f0"/>
-
                     <div
                       class="absolute top-0 left-0 right-0 bottom-0 w-full block cursor-pointer flex items-center justify-center"
                       onClick="document.getElementById('fileInput').click()">
@@ -196,33 +198,44 @@
                   <label class="text-gray-700 block mb-1 font-semibold text-sm uppercase tracking-wide">
                     Facturar a :
                   </label>
+                  
+                  <!-- Cliente Razon -->
                   <input
-                    class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                    type="text" placeholder="Razon Social" x-model="billing.name">
+                    class="mb-1 bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                    type="text" placeholder="Razon Social" x-model="factura.clienteRazon">
+
+                  <!-- Cliente Documento -->
                   <input
-                    class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                    type="text" placeholder="RUC" x-model="billing.address">
+                    class="mb-1 bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                    type="text" placeholder="RUC" x-model="factura.clienteDocumento">
+
+                  <!-- Cliente Direccion -->
                   <input
-                    class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                    type="text" placeholder="Direcion" x-model="billing.extra">
+                    class="mb-1 bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                    type="text" placeholder="Direcion" x-model="factura.clienteDireccion">
                 </div>
 
                 <!-- Datos de tu empresa -->
                 <div class="w-full md:w-1/3">
+
                   <label class="text-gray-700 block mb-1 font-semibold text-sm uppercase tracking-wide">
                     tu Empresa:
                   </label>
-                  <input
-                    class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                    type="text" placeholder="Your company name" x-model="from.name">
 
+                  <!-- Empresa Razon -->
                   <input
                     class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                    type="text" placeholder="Your company address" x-model="from.address">
+                    type="text" placeholder="Your company name" x-model="factura.empresaRazon">
 
+                  <!-- Empresa Documento -->
                   <input
                     class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-                    type="text" placeholder="Additional info" x-model="from.extra">
+                    type="text" placeholder="Your company address" x-model="factura.empresaDocumento">
+
+                  <!-- Empresa Direccion -->
+                  <input
+                    class="mb-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                    type="text" placeholder="Additional info" x-model="factura.empresaDireccion">
                 </div>
               </div>
 
@@ -235,12 +248,14 @@
                 </div>
 
                 <!-- Eliminar -->
-                <div class="px-1 w-20 text-center">
+                <div class="px-1 w-20">
                 </div>
 
                 <!-- Unidad -->
-                <div class="w-20 px-1">
-                  <p class="text-gray-700 uppercase tracking-wide text-sm font-semibold">Unidad</p>
+                <div class="px-1 w-20 text-center">
+                  <p class="text-gray-700 uppercase tracking-wide text-sm font-semibold">
+                    Unidad
+                  </p>
                 </div>
 
                 <!-- Cantidad -->
@@ -267,7 +282,7 @@
               </div>
 
               <!-- Items -->
-              <template x-for="invoice in items" :key="invoice.id">
+              <template x-for="invoice in factura.items" :key="invoice.id">
                 <div class="flex -mx-1 py-2 border-b">
 
                   <!-- Descripcion -->
@@ -276,18 +291,18 @@
                   </div>
 
                   <!-- Eliminar -->
-                  <div class="px-1 w-20 text-center">
+                  <div class="px-1 w-20">
                     <a href="#" class="text-red-500 hover:text-red-600 text-sm font-semibold"
                        @click.prevent="deleteItem(invoice.id)">Eliminar</a>
                   </div>
 
                   <!-- Unidad -->
-                  <div class="px-1 w-32">
+                  <div class="px-1 w-20 text-center">
                     <p class="text-gray-700" x-text="invoice.unidad"></p>
                   </div>
 
                   <!-- Cantidad -->
-                  <div class="px-1 w-20 text-right">
+                  <div class="px-1 w-32 text-right">
                     <p class="text-gray-700" x-text="invoice.cantidad"></p>
                   </div>
 
@@ -334,6 +349,7 @@
                 </div>
               </div>
 
+              <!-- Boton Enviar -->
               <div class="py-10 text-right">
                 <a
                   class="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm"
@@ -512,7 +528,7 @@
 
                     <div class="flex">
 
-                      <!-- Cantida -->
+                      <!-- Cantidad -->
                       <div class="mb-4 w-1/3 mr-2">
                         <label class="text-gray-700 block mb-1 font-semibold text-sm tracking-wide">
                           Cantidad
@@ -552,11 +568,11 @@
                             Medida
                           </label>
                           <select
-                            class="text-gray-700 block appearance-none w-full bg-gray-200 border-2 border-gray-200 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+                            class="text-gray-700 block appearance-none w-full bg-gray-200 border-2 border-gray-200 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-blue-500"                                                  
                             x-model="item.unidad">
-                            <option value="UND">Unidad</option>
-                            <option value="GR">Gramos</option>
-                            <option value="KG">Kilogramos</option>
+                            <option value="UND" x-bind:selected="item.unidad=='UND'">Unidad</option>
+                            <option value="GR" x-bind:selected="item.unidad==='GR'">Gramos</option>
+                            <option value="KG" x-bind:selected="item.unidad==='KG'">Kilogramos</option>
                           </select>
                           <div
                             class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-600">

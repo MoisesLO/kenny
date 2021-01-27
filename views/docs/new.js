@@ -84,12 +84,10 @@ function invoices() {
       clienteRazon: null,
       clienteDocumento: null,
       clienteDireccion: null,
-      empresaRazon: null,
-      empresaDocumento: null,
-      empresaDireccion: null,
-      items: [
-
-      ]
+      empresaRazon: 'MI EMPRESA SOCIEDAD ANONIMA',
+      empresaDocumento: '10425162531',
+      empresaDireccion: 'Ciudad Nueva Comite 40 Lote 15 Mz 213',
+      items: []
     },
     items: [],
     invoiceNumber: 0,
@@ -102,7 +100,7 @@ function invoices() {
     item: {
       id: '',
       name: '',
-      unidad: '',
+      unidad: 'UND',
       cantidad: null,
       precio_unitario_sin_igv: null,
       precio_unitario_con_igv: null,
@@ -131,14 +129,16 @@ function invoices() {
     },
 
     addItem() {
-      this.items.push({
+      this.factura.items.push({
         id: this.generateUUID(),
         name: this.item.name,
         unidad: this.item.unidad,
         cantidad: this.item.cantidad,
+        precio_unitario_sin_igv: this.precio_unitario_sin_igv,
         precio_unitario_con_igv: this.item.precio_unitario_con_igv,
         igv: this.calculateIGV(),
         gst: this.calculateGST(this.item.gst, this.item.precio_unitario_con_igv),
+        subtotal: this.calculateSubtotal(this.cantidad,this.item.precio_unitario_sin_igv,this.item.precio_unitario_con_igv),
         total: this.item.cantidad * this.item.precio_unitario_con_igv
       })
 
@@ -147,7 +147,7 @@ function invoices() {
 
       this.item.id = '';
       this.item.name = '';
-      this.item.unidad = '';
+      this.item.unidad = 'UND';
       this.item.cantidad = null;
       this.item.precio_unitario_sin_igv = 0;
       this.item.precio_unitario_con_igv = null;
@@ -157,7 +157,9 @@ function invoices() {
       this.item.total = 0;
     },
 
-
+    calculateSubtotal(cantidad, precio_unitario_sin_igv, precio_unitario_con_igv){
+      return this.numberFormat((itemRate - (itemRate * (100 / (100 + GSTPercentage)))).toFixed(2));
+    },
     calculateIGV() {
 
     },
