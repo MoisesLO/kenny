@@ -1,13 +1,13 @@
 <!-- Header -->
 <?php include "../layouts/header_.php" ?>
 
-<body class="bg-gray-200" x-data="data()" x-init="init()">
+<body class="bg-gray-100" x-data="data()" x-init="init()">
   <div class="h-screen w-full flex overflow-hidden">
 
     <!-- Sidebar -->
     <?php include "../layouts/sidebar_.php" ?>
 
-    <main class="flex-1 flex flex-col bg-gray-100 dark:bg-gray-700 transition duration-500 ease-in-out overflow-y-auto">
+    <main class="flex-1 flex flex-col bg-gray-50 dark:bg-gray-700 transition duration-500 ease-in-out overflow-y-auto">
       <div class="mx-10 my-2">
 
         <nav class="flex flex-row justify-between border-b dark:border-gray-600 dark:text-gray-400 transition duration-500 ease-in-out">

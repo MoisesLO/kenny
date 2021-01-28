@@ -138,15 +138,17 @@ function invoices() {
         unidad: this.item.unidad,
         cantidad: this.item.cantidad,
         precio_unitario_sin_igv: this.calculatePrecioUnitarioSinIgv(this.item.precio_unitario_con_igv),
-        precio_unitario_con_igv: this.item.precio_unitario_con_igv,
+        precio_unitario_con_igv: this.calculatePrecioUnitarioConIgv(this.item.precio_unitario_con_igv),
         // Los unicos datos que conosco son cantidad y precio_unitario_con_igv
-        igv: this.calculateIGV(this.item.cantidad,this.item.precio_unitario_con_igv),
+        igv: this.calculateIGVLinea(this.item.cantidad,this.item.precio_unitario_con_igv),
         gst: this.calculateGST(this.item.gst, this.item.precio_unitario_con_igv),
         subtotal: this.calculateSubtotal(this.item.cantidad,this.item.precio_unitario_con_igv),
         total: this.calculateTotal(this.item.cantidad, this.item.precio_unitario_con_igv)
       })
 
       this.calculateGravadas();
+      this.calculateIGVTotal();
+      this.calculateFacturaTotal();
       this.itemTotal();
       this.itemTotalGST();
 
@@ -162,9 +164,27 @@ function invoices() {
       this.item.total = 0;
     },
 
+    calculateFacturaTotal(){
+      this.factura.total = parseFloat(this.factura.items.length > 0 ? this.factura.items.reduce((result, item) => {        
+        return (parseFloat(result) + parseFloat(item.total));
+      }, 0) : 0);      
+      this.factura.total = this.numberFormat(parseFloat(this.factura.total.toFixed(2)));
+    },
+
+    calculatePrecioUnitarioConIgv(precio_unitario_con_igv){
+      return parseFloat(precio_unitario_con_igv).toFixed(2);
+    },
+
+    calculateIGVTotal(){
+      this.factura.igv = parseFloat(this.factura.items.length > 0 ? this.factura.items.reduce((result, item) => {        
+        return (parseFloat(result) + parseFloat(item.igv));
+      }, 0) : 0);      
+      this.factura.igv = this.factura.igv.toFixed(2);
+    },
+
     calculateGravadas() {      
       this.factura.gravadas = parseFloat(this.factura.items.length > 0 ? this.factura.items.reduce((result, item) => {        
-        return (parseFloat(result) + parseFloat(item.precio_unitario_con_igv * 0.82));
+        return (parseFloat(result) + parseFloat(item.subtotal));
       }, 0) : 0);      
       this.factura.gravadas = this.factura.gravadas.toFixed(2);
     },
@@ -180,7 +200,8 @@ function invoices() {
     calculateSubtotal(cantidad,precio_unitario_con_igv){
       return this.numberFormat((cantidad * (precio_unitario_con_igv * 0.82)).toFixed(2));
     },
-    calculateIGV(cantidad,precio_unitario_con_igv) {
+
+    calculateIGVLinea(cantidad,precio_unitario_con_igv) {
       return this.numberFormat((cantidad * (precio_unitario_con_igv - (precio_unitario_con_igv * 0.82))).toFixed(2));
     },
 
