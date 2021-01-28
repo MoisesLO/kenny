@@ -329,7 +329,7 @@
                 <div class="flex justify-between mb-3">
                   <div class="text-gray-800 text-right flex-1">Sub Total</div>
                   <div class="text-right w-40">
-                    <div class="text-gray-800 font-medium" x-html="netTotal"></div>
+                    <div class="text-gray-800 font-medium" x-html="factura.gravadas"></div>
                   </div>
                 </div>
                 <div class="flex justify-between mb-4">

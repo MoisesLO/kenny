@@ -87,7 +87,10 @@ function invoices() {
       empresaRazon: 'MI EMPRESA SOCIEDAD ANONIMA',
       empresaDocumento: '10425162531',
       empresaDireccion: 'Ciudad Nueva Comite 40 Lote 15 Mz 213',
-      items: []
+      items: [],
+      gravadas: null,
+      igv: null,
+      total: null
     },
     items: [],
     invoiceNumber: 0,
@@ -143,6 +146,7 @@ function invoices() {
         total: this.calculateTotal(this.item.cantidad, this.item.precio_unitario_con_igv)
       })
 
+      this.calculateGravadas();
       this.itemTotal();
       this.itemTotalGST();
 
@@ -156,6 +160,13 @@ function invoices() {
 
       this.item.igv = 0;
       this.item.total = 0;
+    },
+
+    calculateGravadas() {      
+      this.factura.gravadas = parseFloat(this.factura.items.length > 0 ? this.factura.items.reduce((result, item) => {        
+        return (parseFloat(result) + parseFloat(item.precio_unitario_con_igv * 0.82));
+      }, 0) : 0);      
+      this.factura.gravadas = this.factura.gravadas.toFixed(2);
     },
 
     calculateTotal(cantidad, precio_unitario_con_igv){
@@ -181,8 +192,8 @@ function invoices() {
     },
 
     itemTotal() {
-      this.netTotal = this.numberFormat(this.items.length > 0 ? this.items.reduce((result, item) => {
-        return result + item.total;
+      this.netTotal = parseFloat(this.factura.items.length > 0 ? this.factura.items.reduce((result, item) => {
+        return parseFloat(result) + parseFloat(item.total);
       }, 0) : 0);
     },
 
