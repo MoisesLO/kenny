@@ -407,8 +407,10 @@
                       </div>
                     </div>
                   </div>
-
+                  
+                  
                   <div class="flex justify-between mb-10">
+                    <!-- Datos del Cliente -->
                     <div class="w-1/2">
                       <label class="text-gray-800 block mb-2 font-bold text-xs uppercase tracking-wide">
                         Facturar A:
@@ -419,6 +421,7 @@
                         <div x-text="factura.clienteDireccion"></div>
                       </div>
                     </div>
+                    <!-- Datos de la Empresa -->
                     <div class="w-1/2">
                       <label class="text-gray-800 block mb-2 font-bold text-xs uppercase tracking-wide">Empresa:</label>
                       <div>
@@ -429,6 +432,7 @@
                     </div>
                   </div>
 
+                  <!-- Items Cabezera  -->
                   <div class="flex flex-wrap -mx-1 border-b py-2 items-start">
                     <div class="flex-1 px-1">
                       <p class="text-gray-600 uppercase tracking-wide text-xs font-semibold">Descripcion</p>
@@ -460,7 +464,7 @@
                     </div>
                   </div>
 
-                  <!-- Items -->
+                  <!-- Items Detalle -->
                   <template x-for="invoice in items" :key="invoice.id">
                     <div class="flex flex-wrap -mx-1 py-2 border-b">
                       <div class="flex-1 px-1">
