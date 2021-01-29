@@ -352,7 +352,7 @@
                 <!-- Boton Enviar -->
                 <div class="py-10 text-right">
                   <a
-                      class="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm"
+                      class="bg-gray-500 hover:bg-gray-700 text-white font-semibold py-2 px-4 border border-gray-700 rounded shadow-sm"
                       @click="addInvoice()">Enviar Factura</a>
                 </div>
 
@@ -465,7 +465,7 @@
                   </div>
 
                   <!-- Items Detalle -->
-                  <template x-for="invoice in items" :key="invoice.id">
+                  <template x-for="invoice in factura.items" :key="invoice.id">
                     <div class="flex flex-wrap -mx-1 py-2 border-b">
                       <div class="flex-1 px-1">
                         <p class="text-gray-800" x-text="invoice.name"></p>
@@ -476,11 +476,11 @@
                       </div>
 
                       <div class="px-1 w-20 text-right">
-                        <p class="text-gray-600 uppercase tracking-wide text-xs font-bold x-text="factura.unidad">Unidad</p>
+                        <p class="text-gray-600 uppercase tracking-wide text-xs font-bold x-text="invoice.unidad">Unidad</p>
                       </div>
 
                       <div class="px-1 w-32 text-right">
-                        <p class="text-gray-700" x-text="factura.cantidad"></p>
+                        <p class="text-gray-700" x-text="invoice.cantidad"></p>
                       </div>
 
                       <div class="px-1 w-32 text-right">
@@ -495,23 +495,23 @@
 
                   <div class="py-2 ml-auto mt-20" style="width: 320px">
                     <div class="flex justify-between mb-3">
-                      <div class="text-gray-800 text-right flex-1">Total incl. GST</div>
+                      <div class="text-gray-800 text-right flex-1">Op. Gravadas</div>
                       <div class="text-right w-40">
-                        <div class="text-gray-800 font-medium" x-html="netTotal"></div>
+                        <div class="text-gray-800 font-medium" x-html="factura.gravadas"></div>
                       </div>
                     </div>
                     <div class="flex justify-between mb-4">
-                      <div class="text-sm text-gray-600 text-right flex-1">GST(18%) incl. in Total</div>
+                      <div class="text-sm text-gray-600 text-right flex-1">IGV(18%)</div>
                       <div class="text-right w-40">
-                        <div class="text-sm text-gray-600" x-html="totalGST"></div>
+                        <div class="text-sm text-gray-600" x-html="factura.igv"></div>
                       </div>
                     </div>
 
                     <div class="py-2 border-t border-b">
                       <div class="flex justify-between">
-                        <div class="text-xl text-gray-600 text-right flex-1">Amount due</div>
+                        <div class="text-xl text-gray-600 text-right flex-1">Total</div>
                         <div class="text-right w-40">
-                          <div class="text-xl text-gray-800 font-bold" x-html="netTotal"></div>
+                          <div class="text-xl text-gray-800 font-bold" x-html="factura.total"></div>
                         </div>
                       </div>
                     </div>
