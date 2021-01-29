@@ -129,6 +129,7 @@ function invoices() {
 
     addInvoice(){
       console.log(JSON.parse(JSON.stringify(this.factura)));
+      window.location.href = "./list.php";
     },
 
     addItem() {
