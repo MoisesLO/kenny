@@ -49,7 +49,7 @@
   <ul class="mt-2 text-gray-600">
     <!-- Links -->
     <li class="mt-8 shadow py-2 bg-white dark:bg-gray-200 rounded-lg -ml-4">
-      <a href="../docs/list.php" class="flex pl-4">
+      <a href="../docs/" class="flex pl-4">
         <svg class="fill-current h-5 w-5 dark:text-gray-300" viewBox="0 0 24 24">
           <path d="M16 20h4v-4h-4m0-2h4v-4h-4m-6-2h4V4h-4m6 4h4V4h-4m-6 10h4v-4h-4m-6 4h4v-4H4m0 10h4v-4H4m6 4h4v-4h-4M4 8h4V4H4v4z"></path>
         </svg>

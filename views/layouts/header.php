@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Tailwind Css -->
-    <link rel="stylesheet" href="/assets/css/tailwind.output.css" />
+    <link rel="stylesheet" href="/assets/css/tailwind.css" />
     
     <!--<link href="/assets/css/tailwind.min.css" rel="stylesheet">-->
 
