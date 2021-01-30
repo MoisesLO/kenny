@@ -81,9 +81,9 @@ function invoices() {
       serie: 'F001',
       fecha: null,
       fechaEmision: null,
-      clienteRazon: null,
-      clienteDocumento: null,
-      clienteDireccion: null,
+      clienteRazon: 'Empresa del Cliente o Nombre',
+      clienteDocumento: '98634576238',
+      clienteDireccion: 'Avenida Circunvalacion 234 calle 76',
       empresaRazon: 'MI EMPRESA SOCIEDAD ANONIMA',
       empresaDocumento: '10425162531',
       empresaDireccion: 'Ciudad Nueva Comite 40 Lote 15 Mz 213',
@@ -129,7 +129,10 @@ function invoices() {
 
     addInvoice(){
       console.log(JSON.parse(JSON.stringify(this.factura)));
-      window.location.href = "./list.php";
+      axios.post('/api/docs/saveFactura.php', {factura: this.factura}).then(res => {
+        console.log(res.data);
+      });
+      window.location.href = "/api/docs/saveFactura.php";
     },
 
     addItem() {
@@ -169,7 +172,7 @@ function invoices() {
       this.factura.total = parseFloat(this.factura.items.length > 0 ? this.factura.items.reduce((result, item) => {        
         return (parseFloat(result) + parseFloat(item.total));
       }, 0) : 0);      
-      this.factura.total = this.numberFormat(parseFloat(this.factura.total.toFixed(2)));
+      this.factura.total = parseFloat(this.factura.total).toFixed(2);
     },
 
     calculatePrecioUnitarioConIgv(precio_unitario_con_igv){

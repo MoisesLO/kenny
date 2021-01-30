@@ -268,7 +268,7 @@
 
                       <!-- Precio Unitario con IGV -->
                       <div class="px-1 w-32 text-right">
-                        <p class="text-gray-800" x-text="numberFormat(invoice.precio_unitario_con_igv)"></p>
+                        <p class="text-gray-800" x-text="invoice.precio_unitario_con_igv"></p>
                       </div>
 
                       <!-- Total -->
@@ -301,7 +301,7 @@
                       <div class="flex justify-between">
                         <div class="text-xl text-gray-600 text-right flex-1">Total</div>
                         <div class="text-right w-40">
-                          <div class="text-xl text-gray-800 font-bold" x-html="factura.total"></div>
+                          <p class="text-xl text-gray-800 font-bold" x-text="factura.total"></div>
                         </div>
                       </div>
                     </div>
