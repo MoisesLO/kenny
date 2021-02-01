@@ -89,19 +89,15 @@
                         </div>
                         <div>
                           <p class="font-semibold"><span x-text="doc.serie"></span>-<span x-text="doc.numero"></span></p>
-                          <p class="text-xs text-gray-600 dark:text-gray-400">
-                            SURMOTRIZ SOCIEDAD ANONIMA
+                          <p class="text-xs text-gray-600 dark:text-gray-400" x-text="doc.cliente_razon">                            
                           </p>
                         </div>
                       </div>
                     </td>
                     <!-- Documento -->
-                    <td class="px-4 py-3 text-sm">
-                      1042516253
-
+                    <td class="px-4 py-3 text-sm" x-text="doc.cliente_documento">
                     </td>
-                    <td class="px-4 py-3 text-xs">
-                      30-01-1983
+                    <td class="px-4 py-3 text-xs" x-text="doc.fecha">
                     </td>
                     <td class="px-4 py-3 text-sm">
                       <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
@@ -109,8 +105,7 @@
                       </span>
                     </td>
                     <!-- Monto -->
-                    <td>
-                      S/. 863.45
+                    <td x-text="doc.total">
                     </td>
                     <!-- Opciones -->
                     <td>

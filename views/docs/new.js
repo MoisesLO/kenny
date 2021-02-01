@@ -130,9 +130,12 @@ function invoices() {
     addInvoice(){
       console.log(JSON.parse(JSON.stringify(this.factura)));
       axios.post('/api/docs/saveFactura.php', {factura: this.factura}).then(res => {
-        console.log(res.data);
+        if(res.data == true){
+          window.location.href = "/views/docs/index.php";
+        }
+        // console.log(res.data);
       });
-      window.location.href = "/api/docs/saveFactura.php";
+      // window.location.href = "/api/docs/saveFactura.php";
     },
 
     addItem() {
