@@ -11,7 +11,7 @@
 
     // echo count($lists);
     for($i=0; $i < count($lists);$i++){
-        $lists[$i]['opcion'] = 'true';
+        $lists[$i]['open'] = false;
         // print_r($lists[$i]);
     }
 

@@ -37,7 +37,7 @@
     </span>
   </div>
 
-  
+
   <a href="/views/docs/new.php" class="mt-8 flex items-center justify-between py-3 px-3 text-white dark:text-gray-200 bg-green-400 dark:bg-green-500 rounded-lg shadow">
     <!-- Action -->
     <span>Nueva Factura</span>
@@ -72,9 +72,7 @@
 
     <li class="mt-8">
       <a href="#home" class="flex">
-        <svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
-          <path d="M12 4a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0 014-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4z"></path>
-        </svg>
+        <i class="fas fa-users fill-current h-5 w-5 dark:text-gray-300"></i>
         <span class="ml-2 capitalize font-medium">Empresas</span>
       </a>
     </li>
