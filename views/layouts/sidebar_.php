@@ -71,7 +71,7 @@
     </li>
 
     <li class="mt-8">
-      <a href="#home" class="flex">
+      <a href="../empresas/" class="flex">
         <i class="fas fa-users fill-current h-5 w-5 dark:text-gray-300"></i>
         <span class="ml-2 capitalize font-medium">Empresas</span>
       </a>
