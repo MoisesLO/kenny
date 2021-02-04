@@ -58,18 +58,33 @@
       </div>
 
       <!-- Contenido -->
-      <div class="md:w-1/2 px-12 py-2 rounded-lg shadow">
-        <div class="flex -mx-3">
-          <div class="w-full px-3 mb-5">
-            <label for="" class="text-xs font-semibold px-1">Email</label>
+      <div class="md:w-1/2 px-12 py-8 rounded-lg shadow">
+
+        <!-- Razon Social -->
+        <div class="flex">
+          <div class="w-full mb-5">
+            <label for="" class="text-sm font-semibold text-gray-500 px-1">Razon Social</label>
+            <div class="flex mt-1">
+              <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                <i class="fas fa-file-alt text-gray-400 text-lg"></i>
+              </div>
+              <input type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-gray-400" placeholder="">
+            </div>
+          </div>
+        </div>
+
+        <div class="flex">
+          <div class="w-full mb-5">
+            <label for="" class="text-xs font-semibold text-gray-500 px-1">RUC</label>
             <div class="flex">
               <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                <i class="fas fa-user mdi mdi-email-outline text-gray-400 text-lg"></i>
+                <i class="fas fa-file-alt text-gray-400 text-lg"></i>
               </div>
               <input type="email" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="johnsmith@example.com">
             </div>
           </div>
         </div>
+
       </div>
 
     </div>
