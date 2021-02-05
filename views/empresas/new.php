@@ -52,13 +52,13 @@
 
       <!-- Titulo -->
       <div class="flex justify-between items-center pt-9">
-        <h2 class="my-4 pb-4 text-4xl font-semibold text-gray-600">
+        <h2 class="my-4 pb-4 text-3xl font-semibold text-gray-600">
           <i class="fas fa-plus"></i> Nueva Empresa
         </h2>
       </div>
 
       <!-- Contenido -->
-      <div class="md:w-1/2 px-12 py-8 rounded-lg shadow">
+      <div class="md:w-1/2 px-16 py-10 rounded-lg shadow mb-16">
 
         <!-- Razon Social -->
         <div class="flex">
@@ -68,20 +68,84 @@
               <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                 <i class="fas fa-file-alt text-gray-400 text-lg"></i>
               </div>
-              <input type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-gray-400" placeholder="">
+              <input type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-400" placeholder="">
+            </div>
+          </div>
+        </div>
+
+        <!-- RUC -->
+        <div class="flex">
+          <div class="w-full mb-5">
+            <label for="" class="text-sm font-semibold text-gray-500 px-1">RUC</label>
+            <div class="flex mt-1">
+              <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                <i class="fas fa-sort-numeric-up-alt text-gray-400 text-lg"></i>
+              </div>
+              <input type="email" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500" placeholder="">
+            </div>
+          </div>
+        </div>
+
+        <!-- Direccion -->
+        <div class="flex">
+          <div class="w-full mb-5">
+            <label for="" class="text-sm font-semibold text-gray-500 px-1">Direccion</label>
+            <div class="flex mt-1">
+              <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                <i class="fas fa-address-card text-gray-400 text-lg"></i>
+              </div>
+              <input type="email" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500" placeholder="">
+            </div>
+          </div>
+        </div>
+
+        <!-- Correo -->
+        <div class="flex">
+          <div class="w-full mb-5">
+            <label for="" class="text-sm font-semibold text-gray-500 px-1">Correo</label>
+            <div class="flex mt-1">
+              <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                <i class="fas fa-at text-gray-400 text-lg"></i>
+              </div>
+              <input type="email" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500" placeholder="">
+            </div>
+          </div>
+        </div>
+
+        <!-- Telefono -->
+        <div class="flex">
+          <div class="w-full mb-5">
+            <label for="" class="text-sm font-semibold text-gray-500 px-1">Telefono</label>
+            <div class="flex mt-1">
+              <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                <i class="fas fa-phone text-gray-400 text-lg"></i>
+              </div>
+              <input type="email" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500" placeholder="">
+            </div>
+          </div>
+        </div>
+
+        <!-- Estado -->
+        <div class="flex">
+          <div class="w-full mb-10">
+            <label for="" class="text-sm font-semibold text-gray-500 px-1">Estado</label>
+            <div class="flex mt-1">
+              <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                <i class="fas fa-check-circle text-gray-400 text-lg"></i>
+              </div>
+              <select class="w-full py-2 -ml-10 pl-10 rounded-lg pl-2 text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500">
+                <option value="1">Activo</option>
+                <option value="1">Desactivado</option>
+              </select>
             </div>
           </div>
         </div>
 
         <div class="flex">
-          <div class="w-full mb-5">
-            <label for="" class="text-xs font-semibold text-gray-500 px-1">RUC</label>
-            <div class="flex">
-              <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                <i class="fas fa-file-alt text-gray-400 text-lg"></i>
-              </div>
-              <input type="email" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="johnsmith@example.com">
-            </div>
+          <div class="w-full">
+            <button class="w-full rounded-lg py-2 border-2 border-gray-400 text-white bg-gray-500 hover:bg-gray-700">
+              <i class="fas fa-save text-lg"></i> Guardar
+            </button>
           </div>
         </div>
 
