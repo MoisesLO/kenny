@@ -52,7 +52,7 @@
 
       <!-- Titulo -->
       <div class="flex justify-between items-center pt-9">
-        <h2 class="my-4 pb-4 text-3rdmxl font-semibold text-gray-600">
+        <h2 class="my-4 pb-4 text-3xl font-semibold text-gray-600">
           <i class="fas fa-plus"></i> Nueva Empresa
         </h2>
       </div>
@@ -86,7 +86,7 @@
                   <i class="fas fa-sort-numeric-up-alt text-gray-400 text-lg"></i>
                 </div>
                 <input type="text"
-                       x-model="empresa.ruc"
+                       x-model="empresa.documento"
                        class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500"
                        placeholder="">
               </div>
@@ -180,7 +180,7 @@
     return {
       empresa: {
         razon: 'Abraham Moises Linares Oscco',
-        ruc: '237675239873',
+        documento: '237675239873',
         direccion: 'Ct 40 Lt 15 Mz 213 Ciudad Nueva',
         correo: 'elnaufrago2009@gmail.com',
         telefono: '95264876',
