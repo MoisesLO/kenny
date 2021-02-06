@@ -60,7 +60,7 @@
       <!-- Contenido -->
       <div class="md:w-1/2 px-16 py-10 rounded-lg shadow mb-16" x-data="data()">
 
-        <form @prevent.>
+        <form x-on:submit.prevent="addEmpresa()">
           <!-- Razon Social -->
           <div class="flex">
             <div class="w-full mb-5">
@@ -133,7 +133,7 @@
                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                   <i class="fas fa-phone text-gray-400 text-lg"></i>
                 </div>
-                <input type="email"
+                <input type="number"
                        x-model="empresa.telefono"
                        class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500"
                        placeholder="">
@@ -185,6 +185,9 @@
         correo: 'elnaufrago2009@gmail.com',
         telefono: '95264876',
         estado: '2'
+      },
+      addEmpresa() {
+        console.log(this.empresa.razon);
       }
     }
   }
