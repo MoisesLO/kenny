@@ -11,7 +11,9 @@
       razon = '{$data['empresa']['razon']}',
       documento = '{$data['empresa']['documento']}',
       direccion = '{$data['empresa']['direccion']}',
-      correo = '{$data['empresa']['correo']}'         
+      correo = '{$data['empresa']['correo']}',         
+      telefono = '{$data['empresa']['telefono']}',         
+      estado = '{$data['empresa']['estado']}'         
     ";
 	
 	if($conn->query($documento)){

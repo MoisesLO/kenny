@@ -188,7 +188,10 @@
       },
       addEmpresa() {
         axios.post('../../api/empresas/new.php', {empresa: this.empresa}).then(res => {
-          console.log(res.data);
+          if (res.data == true){
+            window.location.href = "../../views/empresas/index.php";
+          }
+          // console.log(res.data);
         });        
       }
     }
