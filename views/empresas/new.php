@@ -187,7 +187,9 @@
         estado: '2'
       },
       addEmpresa() {
-        console.log(this.empresa.razon);
+        axios.post('../../api/empresas/new.php', {empresa: this.empresa}).then(res => {
+          console.log(res.data);
+        });        
       }
     }
   }
