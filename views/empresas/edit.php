@@ -168,7 +168,11 @@
         initEmpresa() {
           axios.get('../../api/empresas/edit.php?id=4').then(res => {
             this.empresa.razon = res.data[0].razon;
-            console.log(res.data.razon[0]);
+            this.empresa.razon = res.data[0].razon;
+            this.empresa.razon = res.data[0].razon;
+            this.empresa.razon = res.data[0].razon;
+            this.empresa.razon = res.data[0].razon;
+            
           });
         }        
       }
