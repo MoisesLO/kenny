@@ -47,7 +47,8 @@
   </a>
 
   <ul class="mt-2 text-gray-600">
-    <!-- Links -->
+
+    <!-- Documentos -->
     <li class="mt-8 shadow py-2 bg-white dark:bg-gray-200 rounded-lg -ml-4">
       <a href="../docs/" class="flex pl-4">
         <svg class="fill-current h-5 w-5 dark:text-gray-300" viewBox="0 0 24 24">
@@ -59,6 +60,7 @@
       </a>
     </li>
 
+    <!-- Productos -->
     <li class="mt-8">
       <a href="#home" class="flex">
         <svg class="fill-current h-5 w-5 dark:text-gray-300" viewBox="0 0 24 24">
@@ -70,6 +72,7 @@
       </a>
     </li>
 
+    <!-- Empresas -->
     <li class="mt-8">
       <a href="../empresas/" class="flex">
         <i class="fas fa-users fill-current h-5 w-5 dark:text-gray-300"></i>
@@ -77,13 +80,12 @@
       </a>
     </li>
 
+    <!-- Clientes -->
     <li class="mt-8">
-      <a href="#home" class="flex">
-        <svg class="fill-current h-5 w-5 dark:text-gray-300" viewBox="0 0 24 24">
-          <path d="M12 13H7v5h5v2H5V10h2v1h5v2M8 4v2H4V4h4m2-2H2v6h8V2m10 9v2h-4v-2h4m2-2h-8v6h8V9m-2 9v2h-4v-2h4m2-2h-8v6h8v-6z"></path>
-        </svg>
-        <span class="ml-2 capitalize font-medium text-black dark:text-gray-300">
-          Kardex
+      <a href="../clientes/" class="flex">
+        <i class="fas fa-user fill-current"></i>
+        <span class="ml-2 capitalize font-medium">
+          Clientes
         </span>
       </a>
     </li>
