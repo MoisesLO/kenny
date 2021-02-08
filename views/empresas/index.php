@@ -100,7 +100,7 @@
                       </div>
                       <div x-show="empresa.open" class="origin-top-right absolute right-0 mt-2 w-40 bg-white shadow rounded-md z-10">
                         <div class="py-1">
-                          <a  x-bind:href="'./new.php?id=' + empresa.id" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-900">
+                          <a  x-bind:href="'./edit.php?id=' + empresa.id" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-900">
                             <i class="fas fa-edit"></i> Editar
                           </a>
                           <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-900">

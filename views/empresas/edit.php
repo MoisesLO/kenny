@@ -56,7 +56,7 @@
         <!-- Contenido -->
         <div class="md:w-1/2 px-16 py-10 rounded-lg shadow mb-16" x-data="data()" x-init="initEmpresa()">
 
-          <form x-on:submit.prevent="addEmpresa()">
+          <form x-on:submit.prevent="editEmpresa()">
             <!-- Razon Social -->
             <div class="flex">
               <div class="w-full mb-5">
@@ -168,12 +168,20 @@
         initEmpresa() {
           axios.get('../../api/empresas/edit.php?id=4').then(res => {
             this.empresa.razon = res.data[0].razon;
-            this.empresa.razon = res.data[0].razon;
-            this.empresa.razon = res.data[0].razon;
-            this.empresa.razon = res.data[0].razon;
-            this.empresa.razon = res.data[0].razon;
-            
+            this.empresa.documento = res.data[0].documento;
+            this.empresa.direccion = res.data[0].direccion;
+            this.empresa.correo = res.data[0].correo;
+            this.empresa.telefono = res.data[0].telefono;
+            this.empresa.estado = res.data[0].estado;            
           });
+        },
+        editEmpresa(){
+          axios.post('../../api/empresas/update.php', {empresa: this.empresa}).then(res => {
+            if(res.data == true) {
+              window.location.href = "../../views/empresas/index.php";
+            }
+          });
+          console.log(this.empresa.razon);
         }        
       }
     }
