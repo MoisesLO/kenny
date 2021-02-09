@@ -50,7 +50,10 @@
           <h2 class="my-4 pb-4 text-4xl font-semibold text-gray-600">
             <i class="fab fa-expeditedssl"></i> Clientes
           </h2>
-          <a href="./new.php" class="rounded-lg bg-gray-200 hover:bg-gray-500 hover:text-gray-100 text-gray-500 font-semibold py-2 px-4 shadow">
+          <a href="./new.php" 
+            class="rounded-lg bg-gray-200 hover:bg-gray-500 
+            hover:text-gray-100 text-gray-500 font-semibold py-2 
+            px-4 shadow">
             <i class="fas fa-plus"></i> Nuevo Cliente
           </a>
         </div>
