@@ -139,3 +139,6 @@
     }
   </script>
 </body>
+
+<!-- Footer -->
+<?php include "../layouts/footer_.php" ?>
