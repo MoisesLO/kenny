@@ -53,7 +53,7 @@
         </div>
 
         <!-- Contenido -->
-        <div class="sm:w-full px-16 py-10 rounded-lg shadow mb-16" x-data="data()">
+        <div class="sm:w-full px-4 py-10 rounded-lg shadow mb-16" x-data="data()">
 
           <form x-on:submit.prevent="addProducto()">
 
@@ -69,7 +69,7 @@
                     <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                       <i class="fas fa-file-alt text-gray-400 text-lg"></i>
                     </div>
-                    <input type="text" x-model="cliente.razon" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
+                    <input type="text" x-model="producto.nombre" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
                       text-gray-600 border-2 border-gray-200 outline-none 
                       focus:border-gray-400" placeholder="Abraham Moises Linares">
                   </div>
@@ -85,7 +85,7 @@
                     <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                       <i class="fas fa-file-alt text-gray-400 text-lg"></i>
                     </div>
-                    <input type="text" x-model="cliente.razon" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
+                    <input type="text" x-model="producto.stock" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
                       text-gray-600 border-2 border-gray-200 outline-none 
                       focus:border-gray-400" placeholder="1000">
                   </div>
@@ -100,7 +100,7 @@
                       <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                         <i class="fas fa-check-circle text-gray-400 text-lg"></i>
                       </div>
-                      <select x-model="empresa.estado" class="w-full py-2 -ml-10 pl-10 rounded-lg pl-2 text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500">
+                      <select x-model="producto.estado" class="w-full py-2 -ml-10 pl-10 rounded-lg pl-2 text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500">
                         <option value="1">Activo</option>
                         <option value="2">Desactivado</option>
                       </select>
@@ -124,118 +124,147 @@
             </div>
 
             <!-- Fila dos productos -->
-            <div class="flex">
-              <!-- Detalle -->
-              <div class="w-3/12">
-                <div class="w-full mb-5 pr-4">
-                  <label for="" class="text-sm font-semibold text-gray-500 px-1">
-                    Detalle
-                  </label>
-                  <div class="flex mt-1">
-                    <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                      <i class="fas fa-file-alt text-gray-400 text-lg"></i>
-                    </div>
-                    <input type="text" x-model="cliente.razon" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
-                      text-gray-600 border-2 border-gray-200 outline-none 
-                      focus:border-gray-400" placeholder="Cajas">
-                  </div>
-                </div>
-              </div>
-              <div class="w-1/12">
-                <!-- Unidad -->
-                <div class="flex pr-4">
-                  <div class="w-full mb-10">
-                    <label for="" class="text-sm font-semibold text-gray-500 px-1">Unidad</label>
-                    <div class="flex mt-1">                      
-                      <select x-model="empresa.estado" class="w-full py-2 rounded-lg text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500">
-                        <option value="1">Kg</option>
-                        <option value="2">Gr</option>
-                        <option value="2">Und</option>
-                      </select>
+            <template x-for="(item, index) in producto.items" :key="index">
+              <div class="flex mb-4">
+              
+                <!-- Descripcion -->
+                <div class="w-3/12">
+                  <div class="w-full pr-4">
+                    <label x-model="item.descripcion" class="text-sm font-semibold text-gray-500 px-1">
+                      Detalle
+                    </label>
+                    <div class="flex mt-1">
+                      <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                        <i class="fas fa-keyboard text-gray-400 text-lg"></i>
+                      </div>
+                      <input type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
+                        text-gray-600 border-2 border-gray-200 outline-none 
+                        focus:border-gray-400" placeholder="Cajas">
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="w-1/12">
-                <div class="w-full mb-5 pr-4">
-                  <label for="" class="text-sm font-semibold text-gray-500 px-1">
-                    Descuento
-                  </label>
-                  <div class="flex mt-1">                    
-                    <input type="text" x-model="cliente.razon" class="w-full pl-2 pr-2 py-2 rounded-lg 
-                      text-gray-600 border-2 border-gray-200 outline-none 
-                      focus:border-gray-400" placeholder="100">
-                  </div>
-                </div>
-              </div>
 
-              <!-- Estado -->
-              <div class="w-1/12">
-                <div class="flex pr-4">
-                  <div class="w-full mb-10">
-                    <label for="" class="text-sm font-semibold text-gray-500 px-1">Estado</label>
-                    <div class="flex mt-1">                      
-                      <select x-model="empresa.estado" class="w-full py-2 rounded-lg text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500">
-                        <option value="1">Activo</option>
-                        <option value="2">No ACtivo</option>
-                      </select>
+                <div class="w-2/12">
+                  <div class="w-full pr-4">
+                    <label for="" class="text-sm font-semibold text-gray-500 px-1">
+                      Descuento
+                    </label>
+                    <div class="flex mt-1">                    
+                      <input type="text" class="w-full pl-2 pr-2 py-2 rounded-lg 
+                        text-gray-600 border-2 border-gray-200 outline-none 
+                        focus:border-gray-400" placeholder="100">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Opciones -->
+                <div class="w-1/12">
+                  <div class="flex">
+                    <div class="w-full pr-3">
+                      <label for="" class="text-sm font-semibold text-gray-500 px-1">Opciones</label>
+                      <div class="flex mt-1">
+                        <!-- Opciones -->
+                        <div class="relative w-full">
+                          <div>
+                            <button href="#" @click="item.open = !item.open" class="items-center bg-gray-200 block w-full rounded-lg py-2 hover:bg-gray-300">
+                              <i class="fas fa-user-cog text-gray-400"></i>
+                            </button>
+                          </div>
+                          <!-- Detalle de Opciones -->
+                          <div x-show="item.open" class="origin-top-right absolute right-0 mt-2 w-40 bg-white shadow rounded-md z-10">
+                            <div class="py-1 px-4">
+                              <a  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-900">
+                                <i class="fas fa-edit"></i> Editar
+                              </a>
+                              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-900">
+                                <i class="fas fa-trash"></i> Eliminar
+                              </a>
+                              <!-- Estado -->
+                              <div class="flex">
+                                <div class="w-full mb-10">
+                                  <label for="" class="text-sm font-semibold text-gray-500 px-1">Estado</label>
+                                  <div class="flex mt-1">                      
+                                    <select class="w-full py-2 rounded-lg text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500">
+                                      <option value="1">Activo</option>
+                                      <option value="2">No ACtivo</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Unidad -->
+                              <div class="flex">
+                                <div class="w-full mb-10">
+                                  <label for="" class="text-sm font-semibold text-gray-500 px-1">Unidad</label>
+                                  <div class="flex mt-1">                      
+                                    <select  class="w-full py-2 rounded-lg text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500">
+                                      <option value="1">Kg</option>
+                                      <option value="2">Gr</option>
+                                      <option value="2">Und</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Detalle de Opciones -->                          
+                        </div>
+                        <!-- End Opciones -->
+                        
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Sub Total -->
+                <div class="w-2/12">
+                  <div class="w-full pr-3 text-right">
+                    <label for="" class="text-sm font-semibold text-gray-500 px-1 pr-2">
+                      Sub Total
+                    </label>
+                    <div class="flex mt-1">
+                      <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                        <i class="fas fa-hand-holding-usd text-gray-400 text-lg"></i>
+                      </div>
+                      <input type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
+                        text-gray-600 border-2 border-gray-200 outline-none text-right
+                        focus:border-gray-400" placeholder="0.00">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- IGV -->
+                <div class="w-2/12">
+                  <div class="w-full pr-3 text-right pr-2">
+                    <label for="" class="text-sm font-semibold text-gray-500 px-1">
+                      IGV
+                    </label>
+                    <div class="flex mt-1">                    
+                      <input type="text" class="w-full py-2 rounded-lg 
+                        text-gray-500 border-2 border-gray-200 px-1 outline-none text-right
+                        focus:border-gray-400" placeholder="0.00">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Total -->
+                <div class="w-2/12">
+                  <div class="w-full text-right">
+                    <label for="" class="text-sm font-semibold text-gray-500 px-2">
+                      Total
+                    </label>
+                    <div class="flex mt-1">
+                      <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                        <i class="fas fa-money-bill-wave text-gray-400 text-lg"></i>
+                      </div>
+                      <input type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
+                        text-gray-600 border-2 border-gray-200 outline-none text-right
+                        focus:border-gray-400" placeholder="0.00">
                     </div>
                   </div>
                 </div>
               </div>
-
-              <!-- Sub Total -->
-              <div class="w-2/12">
-                <div class="w-full mb-5 pr-4 text-right">
-                  <label for="" class="text-sm font-semibold text-gray-500 px-1 pr-2">
-                    Sub Total
-                  </label>
-                  <div class="flex mt-1">
-                    <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                      <i class="fas fa-hand-holding-usd text-gray-400 text-lg"></i>
-                    </div>
-                    <input type="text" x-model="cliente.razon" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
-                      text-gray-600 border-2 border-gray-200 outline-none text-right
-                      focus:border-gray-400" placeholder="0.00">
-                  </div>
-                </div>
-              </div>
-
-              <!-- IGV -->
-              <div class="w-2/12">
-                <div class="w-full mb-5 pr-4 text-right pr-2">
-                  <label for="" class="text-sm font-semibold text-gray-500 px-1">
-                    IGV
-                  </label>
-                  <div class="flex mt-1">
-                    <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                      <i class="fas fa-hand-holding-usd text-gray-400 text-lg"></i>
-                    </div>
-                    <input type="text" x-model="cliente.razon" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
-                      text-gray-600 border-2 border-gray-200 outline-none text-right
-                      focus:border-gray-400" placeholder="0.00">
-                  </div>
-                </div>
-              </div>
-
-              <!-- Total -->
-              <div class="w-2/12">
-                <div class="w-full mb-5 text-right">
-                  <label for="" class="text-sm font-semibold text-gray-500 px-2">
-                    Total
-                  </label>
-                  <div class="flex mt-1">
-                    <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                      <i class="fas fa-money-bill-wave text-gray-400 text-lg"></i>
-                    </div>
-                    <input type="text" x-model="cliente.razon" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
-                      text-gray-600 border-2 border-gray-200 outline-none text-right
-                      focus:border-gray-400" placeholder="0.00">
-                  </div>
-                </div>
-              </div>
-
-            </div>
+            </template>            
           </form>
         </div>
 
@@ -259,11 +288,24 @@
               unidad: '',
               descuento: '',
               estado: '',
+              open: false,
               precio_unitario_sin_igv: '',
               precio_unitario_con_igv: '',              
               precio_unitario_igv: '',
               total: ''
-            }
+            },
+            {
+              id: '',
+              descripcion: '',
+              unidad: '',
+              descuento: '',
+              estado: '',
+              open: false,
+              precio_unitario_sin_igv: '',
+              precio_unitario_con_igv: '',              
+              precio_unitario_igv: '',
+              total: ''
+            }            
           ]
         },
         addProducto() {
