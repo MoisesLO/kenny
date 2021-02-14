@@ -53,14 +53,14 @@
         </div>
 
         <!-- Contenido -->
-        <div class="sm:w-full px-16 py-10 rounded-lg shadow mb-16" 
-          x-data="data()">
+        <div class="sm:w-full px-16 py-10 rounded-lg shadow mb-16" x-data="data()">
 
           <form x-on:submit.prevent="addProducto()">
 
-            <!-- Nombre -->
+            <!-- Fila uno Headers -->
             <div class="flex">
-              <div class="w-3/4">
+              <!-- Nombre -->
+              <div class="w-6/12">
                 <div class="w-full mb-5 pr-4">
                   <label for="" class="text-sm font-semibold text-gray-500 px-1">
                     Nombre del Producto
@@ -69,16 +69,15 @@
                     <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                       <i class="fas fa-file-alt text-gray-400 text-lg"></i>
                     </div>
-                    <input type="text" x-model="cliente.razon" 
-                      class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
+                    <input type="text" x-model="cliente.razon" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
                       text-gray-600 border-2 border-gray-200 outline-none 
-                      focus:border-gray-400" 
-                      placeholder="Abraham Moises Linares">
+                      focus:border-gray-400" placeholder="Abraham Moises Linares">
                   </div>
                 </div>
               </div>
-              <div class="w-1/4">
-                <div class="w-full mb-5">
+              <!-- Stock -->
+              <div class="w-3/12">
+                <div class="w-full mb-5 pr-4">
                   <label for="" class="text-sm font-semibold text-gray-500 px-1">
                     Stock (min Und)
                   </label>
@@ -86,18 +85,48 @@
                     <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                       <i class="fas fa-file-alt text-gray-400 text-lg"></i>
                     </div>
-                    <input type="text" x-model="cliente.razon" 
-                      class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
+                    <input type="text" x-model="cliente.razon" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
                       text-gray-600 border-2 border-gray-200 outline-none 
-                      focus:border-gray-400" 
-                      placeholder="1000">
+                      focus:border-gray-400" placeholder="1000">
+                  </div>
+                </div>
+              </div>
+              <!-- Activo -->
+              <div class="w-2/12">
+                <div class="flex pr-4">
+                  <div class="w-full mb-10">
+                    <label for="" class="text-sm font-semibold text-gray-500 px-1">Activo</label>
+                    <div class="flex mt-1">
+                      <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                        <i class="fas fa-check-circle text-gray-400 text-lg"></i>
+                      </div>
+                      <select x-model="empresa.estado" class="w-full py-2 -ml-10 pl-10 rounded-lg pl-2 text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500">
+                        <option value="1">Activo</option>
+                        <option value="2">Desactivado</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Agregar -->
+              <div class="w-1/12">
+                <div class="flex">
+                  <div class="w-full mb-10">
+                    <label for="" class="text-sm font-semibold text-gray-500 px-1">Agregar</label>
+                    <div class="flex mt-1">
+                      <button class="items-center bg-gray-200 block w-full rounded-lg py-2 hover:bg-gray-300">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- Fila dos productos -->
             <div class="flex">
-              <div class="w-3/5">
+              <!-- Detalle -->
+              <div class="w-3/12">
                 <div class="w-full mb-5 pr-4">
                   <label for="" class="text-sm font-semibold text-gray-500 px-1">
                     Detalle
@@ -106,48 +135,106 @@
                     <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                       <i class="fas fa-file-alt text-gray-400 text-lg"></i>
                     </div>
-                    <input type="text" x-model="cliente.razon" 
-                      class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
+                    <input type="text" x-model="cliente.razon" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
                       text-gray-600 border-2 border-gray-200 outline-none 
-                      focus:border-gray-400" 
-                      placeholder="Abraham Moises Linares">
+                      focus:border-gray-400" placeholder="Cajas">
                   </div>
                 </div>
               </div>
-              <div class="w-1/5">
-                <div class="w-full mb-5 pr-4">
-                  <label for="" class="text-sm font-semibold text-gray-500 px-1">
-                    Unidad
-                  </label>
-                  <div class="flex mt-1">
-                    <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                      <i class="fas fa-file-alt text-gray-400 text-lg"></i>
+              <div class="w-1/12">
+                <!-- Unidad -->
+                <div class="flex pr-4">
+                  <div class="w-full mb-10">
+                    <label for="" class="text-sm font-semibold text-gray-500 px-1">Unidad</label>
+                    <div class="flex mt-1">                      
+                      <select x-model="empresa.estado" class="w-full py-2 rounded-lg text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500">
+                        <option value="1">Kg</option>
+                        <option value="2">Gr</option>
+                        <option value="2">Und</option>
+                      </select>
                     </div>
-                    <input type="text" x-model="cliente.razon" 
-                      class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
-                      text-gray-600 border-2 border-gray-200 outline-none 
-                      focus:border-gray-400" 
-                      placeholder="UND">
                   </div>
                 </div>
               </div>
-              <div class="w-1/5">
-                <div class="w-full mb-5">
+              <div class="w-1/12">
+                <div class="w-full mb-5 pr-4">
                   <label for="" class="text-sm font-semibold text-gray-500 px-1">
                     Descuento
                   </label>
-                  <div class="flex mt-1">
-                    <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                      <i class="fas fa-sort-numeric-up-alt text-gray-400 text-lg"></i>
-                    </div>
-                    <input type="text" x-model="cliente.razon" 
-                      class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
+                  <div class="flex mt-1">                    
+                    <input type="text" x-model="cliente.razon" class="w-full pl-2 pr-2 py-2 rounded-lg 
                       text-gray-600 border-2 border-gray-200 outline-none 
-                      focus:border-gray-400" 
-                      placeholder="100">
+                      focus:border-gray-400" placeholder="100">
                   </div>
                 </div>
               </div>
+
+              <!-- Estado -->
+              <div class="w-1/12">
+                <div class="flex pr-4">
+                  <div class="w-full mb-10">
+                    <label for="" class="text-sm font-semibold text-gray-500 px-1">Estado</label>
+                    <div class="flex mt-1">                      
+                      <select x-model="empresa.estado" class="w-full py-2 rounded-lg text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500">
+                        <option value="1">Activo</option>
+                        <option value="2">No ACtivo</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sub Total -->
+              <div class="w-2/12">
+                <div class="w-full mb-5 pr-4 text-right">
+                  <label for="" class="text-sm font-semibold text-gray-500 px-1 pr-2">
+                    Sub Total
+                  </label>
+                  <div class="flex mt-1">
+                    <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                      <i class="fas fa-hand-holding-usd text-gray-400 text-lg"></i>
+                    </div>
+                    <input type="text" x-model="cliente.razon" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
+                      text-gray-600 border-2 border-gray-200 outline-none text-right
+                      focus:border-gray-400" placeholder="0.00">
+                  </div>
+                </div>
+              </div>
+
+              <!-- IGV -->
+              <div class="w-2/12">
+                <div class="w-full mb-5 pr-4 text-right pr-2">
+                  <label for="" class="text-sm font-semibold text-gray-500 px-1">
+                    IGV
+                  </label>
+                  <div class="flex mt-1">
+                    <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                      <i class="fas fa-hand-holding-usd text-gray-400 text-lg"></i>
+                    </div>
+                    <input type="text" x-model="cliente.razon" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
+                      text-gray-600 border-2 border-gray-200 outline-none text-right
+                      focus:border-gray-400" placeholder="0.00">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Total -->
+              <div class="w-2/12">
+                <div class="w-full mb-5 text-right">
+                  <label for="" class="text-sm font-semibold text-gray-500 px-2">
+                    Total
+                  </label>
+                  <div class="flex mt-1">
+                    <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                      <i class="fas fa-money-bill-wave text-gray-400 text-lg"></i>
+                    </div>
+                    <input type="text" x-model="cliente.razon" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
+                      text-gray-600 border-2 border-gray-200 outline-none text-right
+                      focus:border-gray-400" placeholder="0.00">
+                  </div>
+                </div>
+              </div>
+
             </div>
           </form>
         </div>
@@ -158,14 +245,30 @@
   </div>
 
   <script>
-    function data(){
+    function data() {
       return {
         producto: {
-
+          id: '',
+          nombre: '',
+          stock: '',
+          estado: '',
+          items: [
+            {
+              id: '',
+              descripcion: '',
+              unidad: '',
+              descuento: '',
+              estado: '',
+              precio_unitario_sin_igv: '',
+              precio_unitario_con_igv: '',              
+              precio_unitario_igv: '',
+              total: ''
+            }
+          ]
         },
-        addProducto(){
+        addProducto() {
 
-        }        
+        }
       }
     }
   </script>
