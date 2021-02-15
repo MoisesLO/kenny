@@ -114,15 +114,15 @@
                   <div class="w-full mb-10">
                     <label for="" class="text-sm font-semibold text-gray-500 px-1">Agregar</label>
                     <div class="flex mt-1">
-                      <button class="items-center bg-gray-200 block w-full rounded-lg py-2 hover:bg-gray-300">
+                      <a href="#" @click="addProductoItems()" class="items-center text-center bg-gray-200 block w-full rounded-lg py-2 hover:bg-gray-300">
                         <i class="fas fa-plus"></i>
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
+  
             <!-- Cabezeras Items -->
             <div class="flex">
               <div class="w-3/12">
@@ -291,17 +291,17 @@
 
               </div>              
             </template>            
-          </form>
+          
 
-          <!-- Boton Guardar -->
-          <div class="">
-            <div class="text-right pt-2">
-              <button class="px-5 rounded-lg py-2 bg-gray-300">
-                <i class="fas fa-save"></i>  Guardar Cambios
-              </button>
+            <!-- Boton Guardar -->
+            <div class="">
+              <div class="text-right pt-2">
+                <button type="submit" class="px-5 rounded-lg py-2 bg-gray-400 text-white hover:bg-gray-500">
+                  <i class="fas fa-save text-gray-50"></i>  Guardar Cambios
+                </button>
+              </div>
             </div>
-          </div>
-
+          </form>
         </div>
 
 
@@ -329,23 +329,28 @@
               precio_unitario_con_igv: '',              
               precio_unitario_igv: '',
               total: ''
-            },
-            {
-              id: '',
-              descripcion: '',
-              unidad: '',
-              descuento: '',
-              estado: '',
-              open: false,
-              precio_unitario_sin_igv: '',
-              precio_unitario_con_igv: '',              
-              precio_unitario_igv: '',
-              total: ''
-            }            
+            }                     
           ]
         },
         addProducto() {
-
+          axios.post('../../api/productos/new.php', { producto: this.producto})
+          .then(res => {
+            console.log(res.data);           
+          });
+        },
+        addProductoItems(){
+          this.producto.items.push({
+            id: '',
+            descripcion: '',
+            unidad: '',
+            descuento: '',
+            estado: '',
+            open: false,
+            precio_unitario_sin_igv: '',
+            precio_unitario_con_igv: '',              
+            precio_unitario_igv: '',
+            total: ''
+          });
         }
       }
     }
