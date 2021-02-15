@@ -48,7 +48,7 @@
         <!-- Titulo -->
         <div class="pt-9">
           <h2 class="my-4 pb-4 text-4xl font-semibold text-gray-500">
-            <i class="fas fa-plus"></i> Nuevo Producto
+            <i class="fas fa-plus"></i> Nuevo Producto1
           </h2>
         </div>
 
@@ -59,6 +59,7 @@
 
             <!-- Fila uno Headers -->
             <div class="flex">
+
               <!-- Nombre -->
               <div class="w-6/12">
                 <div class="w-full mb-5 pr-4">
@@ -75,6 +76,7 @@
                   </div>
                 </div>
               </div>
+
               <!-- Stock -->
               <div class="w-3/12">
                 <div class="w-full mb-5 pr-4">
@@ -86,11 +88,12 @@
                       <i class="fas fa-file-alt text-gray-400 text-lg"></i>
                     </div>
                     <input type="text" x-model="producto.stock" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
-                      text-gray-600 border-2 border-gray-200 outline-none 
+                      text-gray-600 border-2 border-gray-200 outline-none text-right
                       focus:border-gray-400" placeholder="1000">
                   </div>
                 </div>
               </div>
+
               <!-- Activo -->
               <div class="w-2/12">
                 <div class="flex pr-4">
@@ -101,8 +104,8 @@
                         <i class="fas fa-check-circle text-gray-400 text-lg"></i>
                       </div>
                       <select x-model="producto.estado" class="w-full py-2 -ml-10 pl-10 rounded-lg pl-2 text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500">
-                        <option value="1">Activo</option>
-                        <option value="2">Desactivado</option>
+                        <option value="1" x-bind:selected="producto.estado=='activo'">Activo</option>
+                        <option value="2" x-bind:selected="producto.estado=='desactivado'">Desactivado</option>                        
                       </select>
                     </div>
                   </div>
@@ -170,7 +173,9 @@
                       </div>
                       <input type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-md 
                         text-gray-500 border-2 border-gray-100 outline-none 
-                        focus:border-gray-400" placeholder="Cajas">
+                        focus:border-gray-400"
+                        x-model="item.descripcion"
+                        placeholder="Cajas">
                     </div>
                   </div>
                 </div>
@@ -184,7 +189,9 @@
                       </div>
                       <input type="text" class="w-full -ml-10 pl-10 pl-2 pr-2 py-2 rounded-lg 
                         text-gray-500 border-2 border-gray-200 outline-none text-right
-                        focus:border-gray-400" placeholder="100">
+                        focus:border-gray-400"
+                        x-model="item.descuento"
+                        placeholder="100">
                     </div>
                   </div>
                 </div>
@@ -197,27 +204,23 @@
                         <!-- Opciones -->
                         <div class="relative w-full">
                           <div class="flex items-center">
-                            <button href="#" @click="item.open = !item.open" class="items-center bg-gray-200 block w-full rounded-lg py-2 hover:bg-gray-300">
+                            <a href="#" @click="item.open = !item.open" 
+                            class="items-center bg-gray-200 block w-full rounded-lg py-2 hover:bg-gray-300 text-center">
                               <i class="fas fa-user-cog text-gray-400 text-lg"></i>
-                            </button>
+                            </a>
                           </div>
                           <!-- Detalle de Opciones -->
                           <div x-show="item.open" class="origin-top-right absolute right-0 mt-2 w-52 bg-white shadow rounded-md z-10">
-                            <div class="py-1 px-4 pt-3">
-                              <a  class="block py-2 text-md rounded text-gray-700 hover:bg-gray-100 hover:text-green-900">
-                                <i class="fas fa-edit"></i> Editar
-                              </a>
-                              <a href="#" class="block py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-green-900">
-                                <i class="fas fa-trash"></i> Eliminar
-                              </a>
+                            <div class="py-1 px-4 pt-3">                                                            
                               <!-- Estado -->
                               <div class="flex">
                                 <div class="w-full mb-2">
                                   <label for="" class="text-sm font-semibold text-gray-500 px-1">Estado</label>
                                   <div class="flex mt-1">                      
-                                    <select class="w-full py-2 rounded-lg text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500">
-                                      <option value="1">Activo</option>
-                                      <option value="2">No ACtivo</option>
+                                    <select class="w-full py-2 rounded-lg text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500"
+                                    x-model="item.estado">
+                                      <option value="activo" :selected="{}">Activo</option>
+                                      <option value="desactivado" :selected="{}">Desactivado</option>
                                     </select>
                                   </div>
                                 </div>
@@ -227,14 +230,19 @@
                                 <div class="w-full mb-2">
                                   <label for="" class="text-sm font-semibold text-gray-500 px-1">Unidad</label>
                                   <div class="flex mt-1">                      
-                                    <select  class="w-full py-2 rounded-lg text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500">
-                                      <option value="1">Kg</option>
-                                      <option value="2">Gr</option>
-                                      <option value="2">Und</option>
+                                    <select  class="w-full py-2 rounded-lg text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500"
+                                    x-model="item.unidad">
+                                      <option value="unidad" :selected="{}">Unidad (Und)</option>
+                                      <option value="kilogramos" :selected="{}">Kilogramos (Kg)</option>
+                                      <option value="gramos" :selected="{}">Gramos (Gr)</option>                                      
                                     </select>
                                   </div>
                                 </div>
                               </div>
+                              <!-- Editar -->
+                              <a href="#" class="block py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-green-900">
+                                <i class="fas fa-trash"></i> Eliminar
+                              </a>
                             </div>
                           </div>
                           <!-- End Detalle de Opciones -->                          
@@ -256,7 +264,9 @@
                       </div>
                       <input type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
                         text-gray-500 border-2 border-gray-200 outline-none text-right
-                        focus:border-gray-400" placeholder="0.00">
+                        focus:border-gray-400" 
+                        x-model="item.precio_unitario_sin_igv"
+                        placeholder="0.00">
                     </div>
                   </div>
                 </div>
@@ -270,7 +280,9 @@
                       </div>                  
                       <input type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
                         text-gray-500 border-2 border-gray-200 px-1 outline-none text-right
-                        focus:border-gray-400" placeholder="0.00">
+                        focus:border-gray-400" 
+                        x-model="item.precio_unitario_igv"
+                        placeholder="0.00">
                     </div>
                   </div>
                 </div>
@@ -284,7 +296,9 @@
                       </div>
                       <input type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg 
                         text-gray-600 border-2 border-gray-200 outline-none text-right
-                        focus:border-gray-400" placeholder="0.00">
+                        focus:border-gray-400" 
+                        x-model="item.precio_unitario_con_igv"
+                        placeholder="0.00">
                     </div>
                   </div>
                 </div>
@@ -314,20 +328,20 @@
       return {
         producto: {
           id: '',
-          nombre: '',
-          stock: '',
+          nombre: 'Hojas Boom blanco A4',
+          stock: '10000',
           estado: '',
           items: [
             {
               id: '',
-              descripcion: '',
-              unidad: '',
-              descuento: '',
-              estado: '',
+              descripcion: 'Ciento',
+              unidad: 'unidad',
+              descuento: '100',
+              estado: 'activado',
               open: false,
-              precio_unitario_sin_igv: '',
-              precio_unitario_con_igv: '',              
-              precio_unitario_igv: '',
+              precio_unitario_sin_igv: '82.00',
+              precio_unitario_con_igv: '100.00',              
+              precio_unitario_igv: '18.00',
               total: ''
             }                     
           ]
