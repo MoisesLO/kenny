@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.5-10.5.8-MariaDB)
 # Database: kenny
-# Generation Time: 2021-02-09 00:57:14 +0000
+# Generation Time: 2021-02-16 00:01:36 +0000
 # ************************************************************
 
 
@@ -41,10 +41,9 @@ LOCK TABLES `clientes` WRITE;
 
 INSERT INTO `clientes` (`id`, `razon`, `documento`, `direccion`, `correo`, `telefono`, `estado`)
 VALUES
-	(1,'moises','2345','Ct 40 Lt 15','elnaufrago','87665','1'),
-	(2,'Moises',NULL,NULL,NULL,NULL,NULL),
-	(3,'Moises','4567','Cm 40','elnaufrago2009@gmail.com','324324234',''),
-	(4,'Moises','4567','Cm 40','elnaufrago2009@gmail.com','324324234','');
+	(1,'Moises','4567','Cm 40','elnaufrago2009@gmail.com','324324234','1'),
+	(3,'Moises','4567','Cm 40','elnaufrago2009@gmail.com','324324234','2'),
+	(4,'Moises','4567','Cm 40','elnaufrago2009@gmail.com','324324234','2');
 
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -115,6 +114,41 @@ VALUES
 
 /*!40000 ALTER TABLE `empresas` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+# Dump of table header_productos
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `header_productos`;
+
+CREATE TABLE `header_productos` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(150) DEFAULT NULL,
+  `stock` varchar(12) DEFAULT NULL,
+  `estado` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+# Dump of table productos
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `productos`;
+
+CREATE TABLE `productos` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(150) DEFAULT NULL,
+  `descuento` varchar(20) DEFAULT NULL,
+  `estado` varchar(20) DEFAULT NULL,
+  `unidad` varchar(20) DEFAULT NULL,
+  `precio_unitario_sin_igv` varchar(11) DEFAULT NULL,
+  `precio_unitario_igv` varchar(11) DEFAULT NULL,
+  `precio_unitario_total` varchar(11) DEFAULT NULL,
+  `header_producto_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 
 # Dump of table users

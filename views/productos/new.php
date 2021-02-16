@@ -210,7 +210,7 @@
                             </a>
                           </div>
                           <!-- Detalle de Opciones -->
-                          <div x-show="item.open" class="origin-top-right absolute right-0 mt-2 w-52 bg-white shadow rounded-md z-10">
+                          <div x-show="item.open" class="origin-top-right absolute right-0 mt-2 w-52 bg-white shadow rounded-md z-20">
                             <div class="py-1 px-4 pt-3">                                                            
                               <!-- Estado -->
                               <div class="flex">
