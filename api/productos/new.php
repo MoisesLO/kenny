@@ -15,7 +15,12 @@ $query_header = "INSERT INTO header_productos SET
 
 $items_array = Array();
 foreach ($data['producto']['items'] as $item ){
-   array_push($items_array,$item);
+    $query_productos = "INSERT INTO productos SET 
+        descripcion = '{$item['descripcion']}',
+        descuento = ''
+    ";
+    $conn->query($query_productos);
+    array_push($items_array,$item);
 }
 
 echo json_encode($items_array);
