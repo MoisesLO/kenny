@@ -104,8 +104,8 @@
                         <i class="fas fa-check-circle text-gray-400 text-lg"></i>
                       </div>
                       <select x-model="producto.estado" class="w-full py-2 -ml-10 pl-10 rounded-lg pl-2 text-gray-600 border-2 border-gray-200 outline-none focus:border-gray-500">
-                        <option value="1" x-bind:selected="producto.estado=='activo'">Activo</option>
-                        <option value="2" x-bind:selected="producto.estado=='desactivado'">Desactivado</option>                        
+                        <option value="activo" :selected="{}">Activo</option>
+                        <option value="desactivado" :selected="{}">Desactivado</option>
                       </select>
                     </div>
                   </div>
@@ -330,7 +330,7 @@
           id: '',
           nombre: 'Hojas Boom blanco A4',
           stock: '10000',
-          estado: '',
+          estado: 'activo',
           items: [
             {
               id: '',
