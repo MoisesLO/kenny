@@ -125,7 +125,7 @@
                 </div>
               </div>
             </div>
-  
+
             <!-- Cabezeras Items -->
             <div class="flex">
               <div class="w-3/12">
