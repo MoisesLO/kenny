@@ -355,14 +355,14 @@
         addProductoItems(){
           this.producto.items.push({
             id: '',
-            descripcion: '',
-            unidad: '',
-            descuento: '',
-            estado: '',
+            descripcion: 'Docientos',
+            unidad: 'unidad',
+            descuento: '100',
+            estado: 'activado',
             open: false,
-            precio_unitario_sin_igv: '',
-            precio_unitario_con_igv: '',              
-            precio_unitario_igv: '',
+            precio_unitario_sin_igv: '82.00',
+            precio_unitario_con_igv: '100.00',              
+            precio_unitario_igv: '18.00',
             total: ''
           });
         }
