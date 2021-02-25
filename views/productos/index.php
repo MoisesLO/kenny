@@ -55,6 +55,24 @@
           </a>
         </div>
 
+        <div class="w-full rounded-lg shadow-xs">
+          <div class="w-full">
+            <!-- Tabla de Productos -->
+            <table class="w-full">
+              <thead>
+                <tr class="text-xs font-semibold text-left text-gray-500 uppercase border-b bg-gray-100">
+                  <th class="px-4 py-3">#</th>
+                  <th class="px-4 py-3">Producto</th>
+                  <th class="px-4 py-3">Stock</th>
+                  <th class="px-4 py-3">Estado</th>
+                  <th class="px-4 py-3">Precio</th>
+                  <th class="px-4 py-3">Opciones</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+
       </div>
     </main>
   </div>
