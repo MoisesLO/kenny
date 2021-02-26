@@ -60,7 +60,7 @@
             <!-- Tabla de Productos -->
             <table class="w-full">
               <thead>
-                <tr class="text-xs font-semibold text-left text-gray-500 uppercase border-b bg-gray-100">
+                <tr class="text-xs text-center font-semibold text-left text-gray-500 uppercase border-b bg-gray-100">
                   <th class="px-4 py-3">#</th>
                   <th class="px-4 py-3">Producto</th>
                   <th class="px-4 py-3">Stock</th>
@@ -69,6 +69,15 @@
                   <th class="px-4 py-3">Opciones</th>
                 </tr>
               </thead>
+              <tbody class="text-gray-500 text-sm text-center">
+                <tr>
+                  <td>1</td>
+                  <td>Hojas Blancas</td>
+                  <td>12344</td>
+                  <td>Activo</td>
+                  <td>S/ 17.78</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
@@ -78,15 +87,15 @@
   </div>
 
   <script>
-    function data(){
+    function data() {
       return {
         clientes: [],
-        initProductos(){
+        initProductos() {
           axios.get('../../api/productos/index.php')
-          .then(res => {
+            .then(res => {
               this.clientes = res.data;
               console.log(res.data);
-          });
+            });
         }
       }
     }
